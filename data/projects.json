@@ -1,0 +1,78 @@
+[
+  {
+    "id": "pi-a2a-mesh",
+    "title": "Pi A2A Agent Mesh",
+    "date": "2026-07-22",
+    "description": "Production-grade agent-to-agent communication mesh with dual-model intelligence, 5-layer security, and long-term memory.",
+    "fullDescription": "A complete framework for building self-organizing AI agent networks. Each agent runs two pi models in parallel — a cheap one for coordination (gemma-3-12b) and a capable one for real work (deepseek-v4-pro) — with automatic complexity-based switching. Features 5-layer security hardening (firewall, bearer token, rate limiter, guard rails, audit logging), cryptographically verified message exchange with HMAC signatures, long-term memory via mem0, and relaxed exponential backoff for inter-agent polling. Built on the fasta2a Python library implementing the A2A protocol v0.3.0. Includes one-command setup script for deploying new agents. Live demo run at: 2026-07-23T01:15:05Z. Also see the Pi Coding Agent deep-dive presentation: https://portfolio.taskmind-ai.com/pi-presentation",
+    "githubUrl": "https://github.com/tdk67/pi_a2a_setup",
+    "deployedUrl": "http://187.124.171.89:3002",
+    "linkedinUrl": null,
+    "tags": ["agent-mesh", "a2a", "security", "ai-infra"]
+  },
+  {
+    "id": "flyrank-assignments",
+    "title": "FlyRank Assignments (BE-04)",
+    "date": "2026-07-21",
+    "description": "Backend services developed for the FlyRank challenge, focusing on modular containerized architecture.",
+    "fullDescription": "This assignment, specifically the BE-04 milestone, involved building a robust backend service using Python. The project demonstrates containerization best practices, ensuring environment parity from development to production. It handles complex data processing requirements efficiently while maintaining clean code architecture and scalable deployment patterns.",
+    "githubUrl": "https://github.com/tdk67/flyrank-assignments.git",
+    "deployedUrl": "https://portfolio.taskmind-ai.com/flyrank/be-04/docs",
+    "linkedinUrl": null,
+    "tags": ["python", "docker", "backend"]
+  },
+  {
+    "id": "handwritten-carousel",
+    "title": "Handwritten Carousel",
+    "date": "2026-07-20",
+    "description": "A creative tool for generating whiteboard-style carousel content for social media.",
+    "fullDescription": "This project simplifies the creation of engaging social media carousels. It converts text-based inputs into visually striking 'handwritten' style slides. It uses advanced canvas manipulation and web-based rendering to ensure high-quality output that looks like an authentic whiteboard presentation, tailored for high engagement on platforms like LinkedIn and Instagram.",
+    "githubUrl": "https://github.com/tdk67/handwritten-carousel",
+    "deployedUrl": "https://handwritten-carousel.vercel.app",
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_whiteboard-style-carousel-generator-ugcPost-7483823513779240962-PajO",
+    "tags": ["frontend", "canvas", "design"]
+  },
+  {
+    "id": "cv-matcher",
+    "title": "CV Matcher",
+    "date": "2026-07-19",
+    "description": "Intelligent agentic system that matches CVs against job descriptions with high precision.",
+    "fullDescription": "A sophisticated agentic AI pipeline designed to streamline recruitment. It parses raw CV data, compares it against complex job descriptions, and provides detailed compatibility scoring. Built with modern ML principles, it goes beyond keyword matching to interpret context and intent, significantly reducing time spent on initial candidate screening.",
+    "githubUrl": "https://github.com/tdk67/cv-matcher",
+    "deployedUrl": "https://cv-matcher-production-ab75.up.railway.app",
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_genai-ml-agenticai-ugcPost-7482790023650586624-VfVQ",
+    "tags": ["agentic-ai", "ml", "recruitment"]
+  },
+  {
+    "id": "screencast-podcast",
+    "title": "Screencast Podcast",
+    "date": "2026-07-18",
+    "description": "Automated workflow that extracts insights and narrative content from technical screencasts.",
+    "fullDescription": "An innovative media automation tool that processes technical screencasts, extracting key concepts and transforming them into readable, podcast-style transcripts. By leveraging audio and visual streams, the system automatically creates show notes and summaries, bridging the gap between long-form technical video and accessible, written content.",
+    "githubUrl": "https://github.com/tdk67/screencast-podcast",
+    "deployedUrl": "https://screencast-podcast.vercel.app",
+    "tags": ["media-automation", "ai", "content"]
+  },
+  {
+    "id": "pi-presentation",
+    "title": "Experimenting with Pi Coding Agent",
+    "date": "2026-07-23",
+    "description": "Maintained this portfolio site using Pi — created a 10-slide interactive presentation showcasing Pi's capabilities versus Claude Code.",
+    "fullDescription": "Used Pi as the coding agent to maintain and extend this very portfolio site. Built a comprehensive 10-slide HTML presentation exploring Pi's architecture: minimal core, TypeScript extensions, 30+ providers, session tree branching, skills & prompt templates, and Pi's deliberate philosophy of staying out of your way. The presentation targets technical folks familiar with Claude Code who haven't experienced Pi's extensibility model yet.\n\nPi handled the full workflow — reading documentation, generating the presentation HTML/CSS/JS, integrating it into the Next.js Docker deployment, and updating the portfolio data — all in one continuous session.",
+    "githubUrl": null,
+    "deployedUrl": "https://portfolio.taskmind-ai.com/pi-presentation",
+    "linkedinUrl": null,
+    "tags": ["pi-agent", "presentation", "portfolio", "coding-agent"]
+  },
+  {
+    "id": "lyric-lens",
+    "title": "Lyric Lens",
+    "date": "2026-07-17",
+    "description": "Deep interpretative tool for musical lyrics powered by emergent AI models.",
+    "fullDescription": "Lyric Lens provides a unique interface for exploring the hidden themes and metaphors within music. It uses cutting-edge LLMs to perform sentiment and thematic analysis on song lyrics, offering users a rich, interactive interpretation of their favorite tracks. It represents an emergent approach to cultural and artistic analysis through digital tools.",
+    "githubUrl": "https://github.com/tdk67/lyric-lens-emergent",
+    "deployedUrl": "https://doc-review-app-3.emergent.host",
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-builderschallenge-emergent-ugcPost-7480040508086599680-ggb8",
+    "tags": ["ai", "music", "analysis"]
+  }
+]
