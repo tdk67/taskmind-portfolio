@@ -8,7 +8,7 @@
     "githubUrl": "https://github.com/tdk67/deutsch-linguist",
     "deployedUrl": "https://deutsch.taskmind-ai.com",
     "linkedinUrl": "https://www.linkedin.com/posts/ugcPost-7417365391976513536-Jt_B/",
-    "tags": ["education", "german", "literature", "typescript", "ai"]
+    "tags": ["typescript", "fullstack", "ai", "education", "german"]
   },
   {
     "id": "pi-a2a-mesh",
@@ -19,7 +19,7 @@
     "githubUrl": "https://github.com/tdk67/pi_a2a_setup",
     "deployedUrl": "https://a2a.taskmind-ai.com",
     "linkedinUrl": null,
-    "tags": ["agent-mesh", "a2a", "security", "ai-infra"]
+    "tags": ["python", "infra", "ai", "security"]
   },
   {
     "id": "flyrank-assignments",
@@ -30,7 +30,7 @@
     "githubUrl": "https://github.com/tdk67/flyrank-assignments.git",
     "deployedUrl": "https://portfolio.taskmind-ai.com/flyrank/be-04/docs",
     "linkedinUrl": null,
-    "tags": ["python", "docker", "backend"]
+    "tags": ["python", "backend", "docker"]
   },
   {
     "id": "handwritten-carousel",
@@ -41,7 +41,7 @@
     "githubUrl": "https://github.com/tdk67/handwritten-carousel",
     "deployedUrl": "https://handwritten-carousel.vercel.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_whiteboard-style-carousel-generator-ugcPost-7483823513779240962-PajO",
-    "tags": ["frontend", "canvas", "design"]
+    "tags": ["typescript", "frontend", "tool", "design"]
   },
   {
     "id": "cv-matcher",
@@ -52,7 +52,7 @@
     "githubUrl": "https://github.com/tdk67/cv-matcher",
     "deployedUrl": "https://cv-matcher-production-ab75.up.railway.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_genai-ml-agenticai-ugcPost-7482790023650586624-VfVQ",
-    "tags": ["agentic-ai", "ml", "recruitment"]
+    "tags": ["python", "backend", "ai", "tool"]
   },
   {
     "id": "screencast-podcast",
@@ -62,7 +62,7 @@
     "fullDescription": "An innovative media automation tool that processes technical screencasts, extracting key concepts and transforming them into readable, podcast-style transcripts. By leveraging audio and visual streams, the system automatically creates show notes and summaries, bridging the gap between long-form technical video and accessible, written content.",
     "githubUrl": "https://github.com/tdk67/screencast-podcast",
     "deployedUrl": "https://screencast-podcast.vercel.app",
-    "tags": ["media-automation", "ai", "content"]
+    "tags": ["typescript", "tool", "ai", "content"]
   },
   {
     "id": "pi-presentation",
@@ -73,7 +73,7 @@
     "githubUrl": null,
     "deployedUrl": "https://portfolio.taskmind-ai.com/pi-presentation",
     "linkedinUrl": null,
-    "tags": ["pi-agent", "presentation", "portfolio", "coding-agent"]
+    "tags": ["frontend", "portfolio"]
   },
   {
     "id": "lyric-lens",
@@ -84,6 +84,6 @@
     "githubUrl": "https://github.com/tdk67/lyric-lens-emergent",
     "deployedUrl": "https://doc-review-app-3.emergent.host",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-builderschallenge-emergent-ugcPost-7480040508086599680-ggb8",
-    "tags": ["ai", "music", "analysis"]
+    "tags": ["typescript", "frontend", "ai", "music"]
   }
 ]
