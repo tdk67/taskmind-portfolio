@@ -1,12 +1,23 @@
 [
   {
+    "id": "deutsch-linguist",
+    "title": "DeutschLinguist: Philology Academy",
+    "date": "2026-07-25",
+    "description": "Interactive educational web app for advanced German literature, linguistics, and stylistic analysis across a 6-month, 24-work curriculum.",
+    "fullDescription": "An interactive educational platform for deep German literary study. Covers a structured 6-month curriculum through 24 canonical works — from Goethe's Faust I to Jenny Erpenbeck's Gehen, ging, gegangen — organized into six thematic blocks: Classical Foundations, Romanticism, Realism, Modernism, Post-War Reckoning, and Contemporary Voices.\n\nBuilt with a student-first design: BYOK (Bring Your Own Key) multi-provider AI tutoring, Text-to-Speech audio playback, client-side IndexedDB persistence, and Markdown AI tutor chat with German philological guardrails. Generates automated philological lectures tailored to each work.",
+    "githubUrl": "https://github.com/tdk67/deutsch-linguist",
+    "deployedUrl": "https://deutsch.taskmind-ai.com",
+    "linkedinUrl": "https://www.linkedin.com/posts/ugcPost-7417365391976513536-Jt_B/",
+    "tags": ["education", "german", "literature", "typescript", "ai"]
+  },
+  {
     "id": "pi-a2a-mesh",
     "title": "Pi A2A Agent Mesh",
     "date": "2026-07-22",
     "description": "Production-grade agent-to-agent communication mesh with dual-model intelligence, 5-layer security, and long-term memory.",
-    "fullDescription": "A complete framework for building self-organizing AI agent networks. Each agent runs two pi models in parallel — a cheap one for coordination (gemma-3-12b) and a capable one for real work (deepseek-v4-pro) — with automatic complexity-based switching. Features 5-layer security hardening (firewall, bearer token, rate limiter, guard rails, audit logging), cryptographically verified message exchange with HMAC signatures, long-term memory via mem0, and relaxed exponential backoff for inter-agent polling. Built on the fasta2a Python library implementing the A2A protocol v0.3.0. Includes one-command setup script for deploying new agents. Live demo run at: 2026-07-23T01:15:05Z. Also see the Pi Coding Agent deep-dive presentation: https://portfolio.taskmind-ai.com/pi-presentation",
+    "fullDescription": "A complete framework for building self-organizing AI agent networks. Each agent runs two pi models in parallel — a cheap one for coordination (gemma-3-12b) and a capable one for real work (deepseek-v4-pro) — with automatic complexity-based switching. Features 5-layer security hardening (firewall, bearer token, rate limiter, guard rails, audit logging), cryptographically verified message exchange with HMAC signatures, long-term memory via mem0, and relaxed exponential backoff for inter-agent polling. Built on the fasta2a Python library implementing the A2A protocol v0.3.0. Includes one-command setup script for deploying new agents. Live demo run at: 2026-07-27T08:40:24Z. Also see the Pi Coding Agent deep-dive presentation: https://portfolio.taskmind-ai.com/pi-presentation",
     "githubUrl": "https://github.com/tdk67/pi_a2a_setup",
-    "deployedUrl": "http://187.124.171.89:3002",
+    "deployedUrl": "https://a2a.taskmind-ai.com",
     "linkedinUrl": null,
     "tags": ["agent-mesh", "a2a", "security", "ai-infra"]
   },
