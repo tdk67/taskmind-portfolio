@@ -5,11 +5,12 @@ A professional portfolio site showcasing software projects across backend system
 ## Features
 
 - **Timeline view** — projects ordered by date with animated entry
+- **Pagination** — handles growing lists gracefully (10 items per page)
+- **Sidebar navigation** — dynamically built categories and date filters
 - **Expandable cards** — "Read more" reveals full technical descriptions
-- **Tag filtering** — click any tag to filter, supports multi-select
 - **Text search** — searches titles, descriptions, and tags
 - **Quick links** — GitHub, live demo, and LinkedIn links per project
-- **Responsive** — works on mobile, tablet, and desktop
+- **Responsive** — fluid sidebar and mobile hamburger menu
 
 ## Tech Stack
 
@@ -25,13 +26,17 @@ A professional portfolio site showcasing software projects across backend system
 │   ├── layout.tsx            # Root layout + metadata
 │   ├── page.tsx              # Main page
 │   ├── globals.css           # Tailwind + custom styles
+│   ├── pi-presentation/      # Interactive presentation route
+│   │   └── route.ts
 │   └── components/
 │       ├── Header.tsx        # Sticky header + social links
-│       ├── FilterBar.tsx     # Search + tag filter pills
+│       ├── Sidebar.tsx       # Dynamic categories and date filters
+│       ├── FilterBar.tsx     # Text search
 │       ├── ProjectCard.tsx   # Expandable project card
 │       └── Footer.tsx        # Footer
 ├── data/
 │   └── projects.json         # Project entries (add new ones here)
+├── public/                   # Static assets (PDFs, HTML presentations, icons)
 ├── types.ts                  # Shared TypeScript interfaces
 ├── postcss.config.mjs        # PostCSS config for Tailwind v4
 ├── next.config.ts            # Next.js config (standalone output)

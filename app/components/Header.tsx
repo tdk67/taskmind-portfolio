@@ -1,7 +1,7 @@
 export function Header() {
   return (
     <header className="border-b border-slate-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
-      <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
         <div>
           <span className="text-lg font-bold tracking-tight text-slate-900">
             Tamas Deak
