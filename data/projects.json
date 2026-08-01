@@ -1,5 +1,16 @@
 [
   {
+    "id": "kt-puml",
+    "title": "kt-puml — Kotlin PlantUML CLI",
+    "date": "2026-08-01",
+    "description": "Blazingly fast CLI tool that generates PlantUML & Mermaid sequence diagrams from Spring Boot Kotlin source via AST parsing — not LLM hallucination.",
+    "fullDescription": "A deterministic code-to-diagram generator for Kotlin/Spring Boot codebases. Uses Tree-sitter AST parsing to extract real runtime call chains — no dynamic tracing, no LLM guessing. Features: hybrid discovery (OS grep for endpoints + file walker for class indexing), JIT parsing with two-tier cache (85ms per endpoint), scope-aware type resolution for constructor/property injection, dynamic adapter resolution with typeHints, conditional block rendering (opt/else/end), call tree de-duplication, and chain-call cleanup (collapsing builder patterns like webClient).\n\nOutputs PlantUML (.puml), Mermaid (.mmd), and SVG formats. Includes an interactive HTML dashboard with searchable SVG diagrams. Zero global config — just a .kt-puml.json in your project root. Built for CI/CD pipelines and large enterprise codebases.",
+    "githubUrl": "https://github.com/tdk67/kt-puml",
+    "deployedUrl": null,
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_living-architecture-activity-7469552574258622464-QZUj",
+    "tags": ["typescript", "tool", "kotlin"]
+  },
+  {
     "id": "deutsch-linguist",
     "title": "DeutschLinguist: Philology Academy",
     "date": "2026-07-25",
