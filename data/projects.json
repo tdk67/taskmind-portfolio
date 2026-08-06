@@ -73,6 +73,7 @@
     "fullDescription": "An innovative media automation tool that processes technical screencasts, extracting key concepts and transforming them into readable, podcast-style transcripts. By leveraging audio and visual streams, the system automatically creates show notes and summaries, bridging the gap between long-form technical video and accessible, written content.",
     "githubUrl": "https://github.com/tdk67/screencast-podcast",
     "deployedUrl": "https://screencast-podcast.vercel.app",
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-buildinpublic-genai-ugcPost-7491138489686835200-VKK0",
     "tags": ["typescript", "frontend", "tool", "ai"]
   },
   {
