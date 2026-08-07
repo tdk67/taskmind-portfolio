@@ -88,6 +88,17 @@
     "tags": ["frontend"]
   },
   {
+    "id": "be-06-scraper",
+    "title": "BE-06-Scraper — Progressive Multi-Target Web Scraper",
+    "date": "2026-08-07",
+    "description": "Production-grade 3-stage ETL web scraper with politeness ethics layer and Streamlit live demo, deployed on Streamlit Community Cloud.",
+    "fullDescription": "A production-grade, extensible web scraping service implementing a 5-stage ETL pipeline (Fetch → Parse → Extract → Clean → Structure → Store) with a strict Politeness & Ethics Layer. Features a Strategy Pattern engine supporting 3 progressive targets: static HTML (books.toscrape.com via BeautifulSoup4), JSON-LD microdata (dasoertliche.de German B2B leads with OpenStreetMap geocoding), and dynamic SPAs (kaggle.com via Playwright headless browser).\n\nIncludes token-bucket rate limiting, robots.txt compliance, exponential backoff via tenacity, Pydantic v2 validation, and SQLite persistence. The interactive Streamlit dashboard provides live scraping controls, database exploration, record inspection, and audit log viewing. Deployed on Streamlit Community Cloud.",
+    "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-06-Scraper",
+    "deployedUrl": "https://flyrank-assignments-tdeak67-be-06-scraper.streamlit.app",
+    "linkedinUrl": null,
+    "tags": ["python", "fullstack", "tool"]
+  },
+  {
     "id": "lyric-lens",
     "title": "Lyric Lens",
     "date": "2026-07-17",
