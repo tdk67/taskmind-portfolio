@@ -1,5 +1,16 @@
 [
   {
+    "id": "quaternion-calculator",
+    "title": "3D Quaternion Calculator",
+    "date": "2026-08-10",
+    "description": "Interactive 3D wireframe cube calculator powered by quaternion rotation — with an exact rational-number calculator side-by-side.",
+    "fullDescription": "A dual-mode interactive calculator built with Python and Streamlit. The Rational Mode performs exact arithmetic using Python's fractions.Fraction class — no floating-point errors (1/3 + 1/6 = 1/2, not 0.4999...). The Quaternion Mode renders a live 3D wireframe cube with RGB coordinate axes that you rotate via a calculator-style numpad keypad, with real-time perspective projection. Scientific degree input allows precise pitch/yaw/roll around X/Y/Z axes.\n\nOriginally created as an AI pair-programming experiment to test how well an AI assistant could design and build an interactive calculator with both exact fraction arithmetic and 4D quaternion math. The 3D viewport demonstrates quaternion operations visually — no game engine required, just pure math.",
+    "githubUrl": "https://github.com/tdk67/calculator",
+    "deployedUrl": "https://calculator-quaternion.streamlit.app",
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_quaternion-calculator-ugcPost-7492473493050195968-sGHn",
+    "tags": ["python", "frontend", "tool"]
+  },
+  {
     "id": "kt-puml",
     "title": "kt-puml — Kotlin PlantUML CLI",
     "date": "2026-06-08",
@@ -61,7 +72,7 @@
     "description": "Intelligent agentic system that matches CVs against job descriptions with high precision.",
     "fullDescription": "A sophisticated agentic AI pipeline designed to streamline recruitment. It parses raw CV data, compares it against complex job descriptions, and provides detailed compatibility scoring. Built with modern ML principles, it goes beyond keyword matching to interpret context and intent, significantly reducing time spent on initial candidate screening.",
     "githubUrl": "https://github.com/tdk67/cv-matcher",
-    "deployedUrl": "https://cv-matcher-production-ab75.up.railway.app",
+    "deployedUrl": "https://cv-matcher.taskmind-ai.com",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_genai-ml-agenticai-ugcPost-7482790023650586624-VfVQ",
     "tags": ["python", "fullstack", "ai", "tool"]
   },
@@ -95,8 +106,30 @@
     "fullDescription": "A production-grade, extensible web scraping service implementing a 5-stage ETL pipeline (Fetch → Parse → Extract → Clean → Structure → Store) with a strict Politeness & Ethics Layer. Features a Strategy Pattern engine supporting 3 progressive targets: static HTML (books.toscrape.com via BeautifulSoup4), JSON-LD microdata (dasoertliche.de German B2B leads with OpenStreetMap geocoding), and dynamic SPAs (kaggle.com via Playwright headless browser).\n\nIncludes token-bucket rate limiting, robots.txt compliance, exponential backoff via tenacity, Pydantic v2 validation, and SQLite persistence. The interactive Streamlit dashboard provides live scraping controls, database exploration, record inspection, and audit log viewing. Deployed on Streamlit Community Cloud.",
     "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-06-Scraper",
     "deployedUrl": "https://flyrank-assignments-tdeak67-be-06-scraper.streamlit.app",
-    "linkedinUrl": null,
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_aiengineering-webscraping-rag-ugcPost-7491424813388066816-nYi4/",
     "tags": ["python", "fullstack", "tool"]
+  },
+  {
+    "id": "be-07-ai-call",
+    "title": "BE-07 — Book Translation API with LLM",
+    "date": "2026-08-11",
+    "description": "Production-grade schema-validated translation API with 5-layer prompt injection defense, cost logging, kill switch, and Swagger UI — deployed on a VPS behind Nginx.",
+    "fullDescription": "A production-grade, schema-validated API endpoint that accepts a book ID and target language (de/fr/it/en), fetches a scraped book record, and uses an LLM (via OpenRouter) to generate clean, structured JSON translations of the book's title and description.\\n\\nBuilt with FastAPI and the official OpenAI client library for provider-agnostic LLM access (works with both local Ollama and cloud OpenRouter). Features strict Pydantic validation (extra=forbid, min_length=1), response match verification, 1 repair retry on schema failure with quarantine logging, 30s cumulative wall-clock timeout with HTTP 504, exponential backoff retries on rate limits, structured cost logging to JSONL, and a fail-closed Kill Switch (LLM_ENABLED=false → HTTP 503).\\n\\nSecurity: 5-Layer Prompt Injection Defense (OWASP LLM01) — role separation, JSON encoding, anti-hijacking instructions, hard schema firewall, and few-shot security examples — preventing scraped text from hijacking prompt instructions. Deployed on a VPS behind Nginx reverse proxy with Let's Encrypt SSL. Includes 15 passing pytest tests, a 9-case eval suite (100% pass rate), and interactive Swagger UI docs.",
+    "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-07-AI-Call",
+    "deployedUrl": "https://taskmind-ai.com/flyrank-be-07/docs",
+    "linkedinUrl": null,
+    "tags": ["python", "backend", "ai", "security"]
+  },
+  {
+    "id": "be-08-pdf-report",
+    "title": "BE-08 — PDF Report Generator & Immediate Streaming API",
+    "date": "2026-08-18",
+    "description": "Executive analytics & branded PDF reporting engine with single-flight concurrency, idempotency, and an immediate 0ms-TTFB PDF streaming endpoint — deployed on a VPS behind Nginx.",
+    "fullDescription": "An executive analytics and PDF reporting engine for the FlyRank Backend Track. Queries the BE-06-Scraper SQLite database (1,000 books), generates FL-05 Identity Kit-branded PDF reports (Inter & JetBrains Mono, Sky Blue #0284c7), and serves them through dual modes: a standard endpoint (POST /reports) returning a file link, and an advanced immediate streaming endpoint (POST /reports/stream) that streams PDF bytes in 8KB chunks straight from memory or disk with 0ms TTFB on idempotent hits.\\n\\nArchitecture highlights: clean 4-layer separation (routers → services → repository → SQLite, with zero SQL outside the repository layer), a Single-Flight asyncio.Lock with double-check pattern preventing race conditions under concurrent generation, same-day idempotency (duplicate requests reuse the existing PDF), SQL aggregations computed directly in SQLite with performance indexes (idx_books_category/rating/price), and a configurable catalog cap (max_catalog_limit) with truncation badge.\\n\\nPDF generation uses Jinja2 template decoupling (design changes require zero backend edits) with Playwright headless Chromium rendering to pixel-perfect A4 bytes, isolated in a thread-pool executor for Windows Proactor compatibility. Includes a lightweight live streaming monitor dashboard (GET /demo) demonstrating real-time ReadableStream chunk reading with live TTFB, chunk counters, and PDF preview. 23 passing pytest tests across 6 modules including a 5-request concurrency test. Deployed on a VPS behind Nginx reverse proxy with Let's Encrypt SSL — live demo: https://taskmind-ai.com/flyrank-be-08/demo",
+    "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-08-PDFReport",
+    "deployedUrl": "https://taskmind-ai.com/flyrank-be-08/docs",
+    "linkedinUrl": null,
+    "tags": ["python", "backend", "tool"]
   },
   {
     "id": "lyric-lens",
