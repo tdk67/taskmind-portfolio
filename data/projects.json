@@ -1,47 +1,82 @@
 [
   {
+    "id": "venturebot",
+    "title": "Idea Lint \u2014 Adversarial Multi-Agent Venture Validation Engine",
+    "date": "2026-08-19",
+    "description": "An impartial AI courtroom for startup ideas \u2014 researches with live Google Search grounding, debates across adversarial agents, and outputs an audit-proof, scored PRD. Privacy-first with zero cloud storage and BYOK free-tier support.",
+    "fullDescription": "Idea Lint (formerly VentureBot) is an adversarial, multi-agent venture validation engine built on Google ADK. It takes a raw startup concept and runs it through a panel of specialized agents with deliberately asymmetric information access: a Researcher mines competitor signals and market metrics via live Google Search grounding; the Creative Ideator proposes lateral pivot angles; the Advocate argues the strongest bull case; the Critic red-teams feasibility, moats, and unit economics traps; the Judge synthesizes everything into structured 1\u201310 scores (Novelty, Feasibility, Market Fit) with a PROCEED/PARK/PRUNE verdict; and the PRD Writer + Security Auditor produce a rigorous, machine-actionable PRD.",
+    "githubUrl": "https://github.com/tdk67/venturebot",
+    "deployedUrl": "https://venturebot.taskmind-ai.com",
+    "linkedinUrl": null,
+    "tags": [
+      "python",
+      "ai",
+      "backend",
+      "tool"
+    ]
+  },
+  {
     "id": "quaternion-calculator",
     "title": "3D Quaternion Calculator",
     "date": "2026-08-10",
-    "description": "Interactive 3D wireframe cube calculator powered by quaternion rotation — with an exact rational-number calculator side-by-side.",
-    "fullDescription": "A dual-mode interactive calculator built with Python and Streamlit. The Rational Mode performs exact arithmetic using Python's fractions.Fraction class — no floating-point errors (1/3 + 1/6 = 1/2, not 0.4999...). The Quaternion Mode renders a live 3D wireframe cube with RGB coordinate axes that you rotate via a calculator-style numpad keypad, with real-time perspective projection. Scientific degree input allows precise pitch/yaw/roll around X/Y/Z axes.\n\nOriginally created as an AI pair-programming experiment to test how well an AI assistant could design and build an interactive calculator with both exact fraction arithmetic and 4D quaternion math. The 3D viewport demonstrates quaternion operations visually — no game engine required, just pure math.",
+    "description": "Interactive 3D wireframe cube calculator powered by quaternion rotation \u2014 with an exact rational-number calculator side-by-side.",
+    "fullDescription": "A dual-mode interactive calculator built with Python and Streamlit. The Rational Mode performs exact arithmetic using Python's fractions.Fraction class \u2014 no floating-point errors (1/3 + 1/6 = 1/2, not 0.4999...). The Quaternion Mode renders a live 3D wireframe cube with RGB coordinate axes that you rotate via a calculator-style numpad keypad, with real-time perspective projection. Scientific degree input allows precise pitch/yaw/roll around X/Y/Z axes.\n\nOriginally created as an AI pair-programming experiment to test how well an AI assistant could design and build an interactive calculator with both exact fraction arithmetic and 4D quaternion math. The 3D viewport demonstrates quaternion operations visually \u2014 no game engine required, just pure math.",
     "githubUrl": "https://github.com/tdk67/calculator",
     "deployedUrl": "https://calculator-quaternion.streamlit.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_quaternion-calculator-ugcPost-7492473493050195968-sGHn",
-    "tags": ["python", "frontend", "tool"]
+    "tags": [
+      "python",
+      "frontend",
+      "tool"
+    ]
   },
   {
     "id": "kt-puml",
-    "title": "kt-puml — Kotlin PlantUML CLI",
+    "title": "kt-puml \u2014 Kotlin PlantUML CLI",
     "date": "2026-06-08",
-    "description": "Blazingly fast CLI tool that generates PlantUML & Mermaid sequence diagrams from Spring Boot Kotlin source via AST parsing — not LLM hallucination.",
-    "fullDescription": "A deterministic code-to-diagram generator for Kotlin/Spring Boot codebases. Uses Tree-sitter AST parsing to extract real runtime call chains — no dynamic tracing, no LLM guessing. Features: hybrid discovery (OS grep for endpoints + file walker for class indexing), JIT parsing with two-tier cache (85ms per endpoint), scope-aware type resolution for constructor/property injection, dynamic adapter resolution with typeHints, conditional block rendering (opt/else/end), call tree de-duplication, and chain-call cleanup (collapsing builder patterns like webClient).\n\nOutputs PlantUML (.puml), Mermaid (.mmd), and SVG formats. Includes an interactive HTML dashboard with searchable SVG diagrams. Zero global config — just a .kt-puml.json in your project root. Built for CI/CD pipelines and large enterprise codebases.",
+    "description": "Blazingly fast CLI tool that generates PlantUML & Mermaid sequence diagrams from Spring Boot Kotlin source via AST parsing \u2014 not LLM hallucination.",
+    "fullDescription": "A deterministic code-to-diagram generator for Kotlin/Spring Boot codebases. Uses Tree-sitter AST parsing to extract real runtime call chains \u2014 no dynamic tracing, no LLM guessing. Features: hybrid discovery (OS grep for endpoints + file walker for class indexing), JIT parsing with two-tier cache (85ms per endpoint), scope-aware type resolution for constructor/property injection, dynamic adapter resolution with typeHints, conditional block rendering (opt/else/end), call tree de-duplication, and chain-call cleanup (collapsing builder patterns like webClient).\n\nOutputs PlantUML (.puml), Mermaid (.mmd), and SVG formats. Includes an interactive HTML dashboard with searchable SVG diagrams. Zero global config \u2014 just a .kt-puml.json in your project root. Built for CI/CD pipelines and large enterprise codebases.",
     "githubUrl": "https://github.com/tdk67/kt-puml",
     "deployedUrl": null,
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_living-architecture-activity-7469552574258622464-QZUj",
-    "tags": ["typescript", "tool", "kotlin"]
+    "tags": [
+      "typescript",
+      "tool",
+      "kotlin"
+    ]
   },
   {
     "id": "deutsch-linguist",
     "title": "DeutschLinguist: Philology Academy",
     "date": "2026-07-25",
     "description": "Interactive educational web app for advanced German literature, linguistics, and stylistic analysis across a 6-month, 24-work curriculum.",
-    "fullDescription": "An interactive educational platform for deep German literary study. Covers a structured 6-month curriculum through 24 canonical works — from Goethe's Faust I to Jenny Erpenbeck's Gehen, ging, gegangen — organized into six thematic blocks: Classical Foundations, Romanticism, Realism, Modernism, Post-War Reckoning, and Contemporary Voices.\n\nBuilt with a student-first design: BYOK (Bring Your Own Key) multi-provider AI tutoring, Text-to-Speech audio playback, client-side IndexedDB persistence, and Markdown AI tutor chat with German philological guardrails. Generates automated philological lectures tailored to each work.",
+    "fullDescription": "An interactive educational platform for deep German literary study. Covers a structured 6-month curriculum through 24 canonical works \u2014 from Goethe's Faust I to Jenny Erpenbeck's Gehen, ging, gegangen \u2014 organized into six thematic blocks: Classical Foundations, Romanticism, Realism, Modernism, Post-War Reckoning, and Contemporary Voices.\n\nBuilt with a student-first design: BYOK (Bring Your Own Key) multi-provider AI tutoring, Text-to-Speech audio playback, client-side IndexedDB persistence, and Markdown AI tutor chat with German philological guardrails. Generates automated philological lectures tailored to each work.",
     "githubUrl": "https://github.com/tdk67/deutsch-linguist",
     "deployedUrl": "https://deutsch.taskmind-ai.com",
     "linkedinUrl": "https://www.linkedin.com/posts/ugcPost-7417365391976513536-Jt_B/",
-    "tags": ["typescript", "fullstack", "ai", "education", "german"]
+    "tags": [
+      "typescript",
+      "fullstack",
+      "ai",
+      "education",
+      "german"
+    ]
   },
   {
     "id": "pi-a2a-mesh",
     "title": "Pi A2A Agent Mesh",
     "date": "2026-07-22",
     "description": "Production-grade agent-to-agent communication mesh with dual-model intelligence, 5-layer security, and long-term memory.",
-    "fullDescription": "A complete framework for building self-organizing AI agent networks. Each agent runs two pi models in parallel — a cheap one for coordination (gemma-3-12b) and a capable one for real work (deepseek-v4-pro) — with automatic complexity-based switching. Features 5-layer security hardening (firewall, bearer token, rate limiter, guard rails, audit logging), cryptographically verified message exchange with HMAC signatures, long-term memory via mem0, and relaxed exponential backoff for inter-agent polling. Built on the fasta2a Python library implementing the A2A protocol v0.3.0. Includes one-command setup script for deploying new agents. Live demo run at: 2026-07-27T08:40:24Z. Also see the Pi Coding Agent deep-dive presentation: https://portfolio.taskmind-ai.com/pi-presentation",
+    "fullDescription": "A complete framework for building self-organizing AI agent networks. Each agent runs two pi models in parallel \u2014 a cheap one for coordination (gemma-3-12b) and a capable one for real work (deepseek-v4-pro) \u2014 with automatic complexity-based switching. Features 5-layer security hardening (firewall, bearer token, rate limiter, guard rails, audit logging), cryptographically verified message exchange with HMAC signatures, long-term memory via mem0, and relaxed exponential backoff for inter-agent polling. Built on the fasta2a Python library implementing the A2A protocol v0.3.0. Includes one-command setup script for deploying new agents. Live demo run at: 2026-07-27T08:40:24Z. Also see the Pi Coding Agent deep-dive presentation: https://portfolio.taskmind-ai.com/pi-presentation",
     "githubUrl": "https://github.com/tdk67/pi_a2a_setup",
     "deployedUrl": "https://a2a.taskmind-ai.com",
     "linkedinUrl": null,
-    "tags": ["python", "backend", "infra", "ai"]
+    "tags": [
+      "python",
+      "backend",
+      "infra",
+      "ai"
+    ]
   },
   {
     "id": "flyrank-assignments",
@@ -52,7 +87,10 @@
     "githubUrl": "https://github.com/tdk67/flyrank-assignments.git",
     "deployedUrl": "https://portfolio.taskmind-ai.com/flyrank/be-04/docs",
     "linkedinUrl": null,
-    "tags": ["python", "backend"]
+    "tags": [
+      "python",
+      "backend"
+    ]
   },
   {
     "id": "handwritten-carousel",
@@ -63,7 +101,11 @@
     "githubUrl": "https://github.com/tdk67/handwritten-carousel",
     "deployedUrl": "https://handwritten-carousel.vercel.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_whiteboard-style-carousel-generator-ugcPost-7483823513779240962-PajO",
-    "tags": ["typescript", "frontend", "tool"]
+    "tags": [
+      "typescript",
+      "frontend",
+      "tool"
+    ]
   },
   {
     "id": "cv-matcher",
@@ -74,7 +116,12 @@
     "githubUrl": "https://github.com/tdk67/cv-matcher",
     "deployedUrl": "https://cv-matcher.taskmind-ai.com",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_genai-ml-agenticai-ugcPost-7482790023650586624-VfVQ",
-    "tags": ["python", "fullstack", "ai", "tool"]
+    "tags": [
+      "python",
+      "fullstack",
+      "ai",
+      "tool"
+    ]
   },
   {
     "id": "screencast-podcast",
@@ -85,51 +132,71 @@
     "githubUrl": "https://github.com/tdk67/screencast-podcast",
     "deployedUrl": "https://screencast-podcast.vercel.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-buildinpublic-genai-activity-7491138711649202178-UPPU",
-    "tags": ["typescript", "frontend", "tool", "ai"]
+    "tags": [
+      "typescript",
+      "frontend",
+      "tool",
+      "ai"
+    ]
   },
   {
     "id": "pi-presentation",
     "title": "Experimenting with Pi Coding Agent",
     "date": "2026-07-23",
-    "description": "Maintained this portfolio site using Pi — created a 10-slide interactive presentation showcasing Pi's capabilities versus Claude Code.",
-    "fullDescription": "Used Pi as the coding agent to maintain and extend this very portfolio site. Built a comprehensive 10-slide HTML presentation exploring Pi's architecture: minimal core, TypeScript extensions, 30+ providers, session tree branching, skills & prompt templates, and Pi's deliberate philosophy of staying out of your way. The presentation targets technical folks familiar with Claude Code who haven't experienced Pi's extensibility model yet.\n\nPi handled the full workflow — reading documentation, generating the presentation HTML/CSS/JS, integrating it into the Next.js Docker deployment, and updating the portfolio data — all in one continuous session.",
+    "description": "Maintained this portfolio site using Pi \u2014 created a 10-slide interactive presentation showcasing Pi's capabilities versus Claude Code.",
+    "fullDescription": "Used Pi as the coding agent to maintain and extend this very portfolio site. Built a comprehensive 10-slide HTML presentation exploring Pi's architecture: minimal core, TypeScript extensions, 30+ providers, session tree branching, skills & prompt templates, and Pi's deliberate philosophy of staying out of your way. The presentation targets technical folks familiar with Claude Code who haven't experienced Pi's extensibility model yet.\n\nPi handled the full workflow \u2014 reading documentation, generating the presentation HTML/CSS/JS, integrating it into the Next.js Docker deployment, and updating the portfolio data \u2014 all in one continuous session.",
     "githubUrl": null,
     "deployedUrl": "https://portfolio.taskmind-ai.com/pi-presentation",
     "linkedinUrl": null,
-    "tags": ["frontend"]
+    "tags": [
+      "frontend"
+    ]
   },
   {
     "id": "be-06-scraper",
-    "title": "BE-06-Scraper — Progressive Multi-Target Web Scraper",
+    "title": "BE-06-Scraper \u2014 Progressive Multi-Target Web Scraper",
     "date": "2026-08-07",
     "description": "Production-grade 3-stage ETL web scraper with politeness ethics layer and Streamlit live demo, deployed on Streamlit Community Cloud.",
-    "fullDescription": "A production-grade, extensible web scraping service implementing a 5-stage ETL pipeline (Fetch → Parse → Extract → Clean → Structure → Store) with a strict Politeness & Ethics Layer. Features a Strategy Pattern engine supporting 3 progressive targets: static HTML (books.toscrape.com via BeautifulSoup4), JSON-LD microdata (dasoertliche.de German B2B leads with OpenStreetMap geocoding), and dynamic SPAs (kaggle.com via Playwright headless browser).\n\nIncludes token-bucket rate limiting, robots.txt compliance, exponential backoff via tenacity, Pydantic v2 validation, and SQLite persistence. The interactive Streamlit dashboard provides live scraping controls, database exploration, record inspection, and audit log viewing. Deployed on Streamlit Community Cloud.",
+    "fullDescription": "A production-grade, extensible web scraping service implementing a 5-stage ETL pipeline (Fetch \u2192 Parse \u2192 Extract \u2192 Clean \u2192 Structure \u2192 Store) with a strict Politeness & Ethics Layer. Features a Strategy Pattern engine supporting 3 progressive targets: static HTML (books.toscrape.com via BeautifulSoup4), JSON-LD microdata (dasoertliche.de German B2B leads with OpenStreetMap geocoding), and dynamic SPAs (kaggle.com via Playwright headless browser).\n\nIncludes token-bucket rate limiting, robots.txt compliance, exponential backoff via tenacity, Pydantic v2 validation, and SQLite persistence. The interactive Streamlit dashboard provides live scraping controls, database exploration, record inspection, and audit log viewing. Deployed on Streamlit Community Cloud.",
     "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-06-Scraper",
     "deployedUrl": "https://flyrank-assignments-tdeak67-be-06-scraper.streamlit.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_aiengineering-webscraping-rag-ugcPost-7491424813388066816-nYi4/",
-    "tags": ["python", "fullstack", "tool"]
+    "tags": [
+      "python",
+      "fullstack",
+      "tool"
+    ]
   },
   {
     "id": "be-07-ai-call",
-    "title": "BE-07 — Book Translation API with LLM",
+    "title": "BE-07 \u2014 Book Translation API with LLM",
     "date": "2026-08-11",
-    "description": "Production-grade schema-validated translation API with 5-layer prompt injection defense, cost logging, kill switch, and Swagger UI — deployed on a VPS behind Nginx.",
-    "fullDescription": "A production-grade, schema-validated API endpoint that accepts a book ID and target language (de/fr/it/en), fetches a scraped book record, and uses an LLM (via OpenRouter) to generate clean, structured JSON translations of the book's title and description.\\n\\nBuilt with FastAPI and the official OpenAI client library for provider-agnostic LLM access (works with both local Ollama and cloud OpenRouter). Features strict Pydantic validation (extra=forbid, min_length=1), response match verification, 1 repair retry on schema failure with quarantine logging, 30s cumulative wall-clock timeout with HTTP 504, exponential backoff retries on rate limits, structured cost logging to JSONL, and a fail-closed Kill Switch (LLM_ENABLED=false → HTTP 503).\\n\\nSecurity: 5-Layer Prompt Injection Defense (OWASP LLM01) — role separation, JSON encoding, anti-hijacking instructions, hard schema firewall, and few-shot security examples — preventing scraped text from hijacking prompt instructions. Deployed on a VPS behind Nginx reverse proxy with Let's Encrypt SSL. Includes 15 passing pytest tests, a 9-case eval suite (100% pass rate), and interactive Swagger UI docs.",
+    "description": "Production-grade schema-validated translation API with 5-layer prompt injection defense, cost logging, kill switch, and Swagger UI \u2014 deployed on a VPS behind Nginx.",
+    "fullDescription": "A production-grade, schema-validated API endpoint that accepts a book ID and target language (de/fr/it/en), fetches a scraped book record, and uses an LLM (via OpenRouter) to generate clean, structured JSON translations of the book's title and description.\\n\\nBuilt with FastAPI and the official OpenAI client library for provider-agnostic LLM access (works with both local Ollama and cloud OpenRouter). Features strict Pydantic validation (extra=forbid, min_length=1), response match verification, 1 repair retry on schema failure with quarantine logging, 30s cumulative wall-clock timeout with HTTP 504, exponential backoff retries on rate limits, structured cost logging to JSONL, and a fail-closed Kill Switch (LLM_ENABLED=false \u2192 HTTP 503).\\n\\nSecurity: 5-Layer Prompt Injection Defense (OWASP LLM01) \u2014 role separation, JSON encoding, anti-hijacking instructions, hard schema firewall, and few-shot security examples \u2014 preventing scraped text from hijacking prompt instructions. Deployed on a VPS behind Nginx reverse proxy with Let's Encrypt SSL. Includes 15 passing pytest tests, a 9-case eval suite (100% pass rate), and interactive Swagger UI docs.",
     "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-07-AI-Call",
     "deployedUrl": "https://taskmind-ai.com/flyrank-be-07/docs",
     "linkedinUrl": null,
-    "tags": ["python", "backend", "ai", "security"]
+    "tags": [
+      "python",
+      "backend",
+      "ai",
+      "security"
+    ]
   },
   {
     "id": "be-08-pdf-report",
-    "title": "BE-08 — PDF Report Generator & Immediate Streaming API",
+    "title": "BE-08 \u2014 PDF Report Generator & Immediate Streaming API",
     "date": "2026-08-18",
-    "description": "Executive analytics & branded PDF reporting engine with single-flight concurrency, idempotency, and an immediate 0ms-TTFB PDF streaming endpoint — deployed on a VPS behind Nginx.",
-    "fullDescription": "An executive analytics and PDF reporting engine for the FlyRank Backend Track. Queries the BE-06-Scraper SQLite database (1,000 books), generates FL-05 Identity Kit-branded PDF reports (Inter & JetBrains Mono, Sky Blue #0284c7), and serves them through dual modes: a standard endpoint (POST /reports) returning a file link, and an advanced immediate streaming endpoint (POST /reports/stream) that streams PDF bytes in 8KB chunks straight from memory or disk with 0ms TTFB on idempotent hits.\\n\\nArchitecture highlights: clean 4-layer separation (routers → services → repository → SQLite, with zero SQL outside the repository layer), a Single-Flight asyncio.Lock with double-check pattern preventing race conditions under concurrent generation, same-day idempotency (duplicate requests reuse the existing PDF), SQL aggregations computed directly in SQLite with performance indexes (idx_books_category/rating/price), and a configurable catalog cap (max_catalog_limit) with truncation badge.\\n\\nPDF generation uses Jinja2 template decoupling (design changes require zero backend edits) with Playwright headless Chromium rendering to pixel-perfect A4 bytes, isolated in a thread-pool executor for Windows Proactor compatibility. Includes a lightweight live streaming monitor dashboard (GET /demo) demonstrating real-time ReadableStream chunk reading with live TTFB, chunk counters, and PDF preview. 23 passing pytest tests across 6 modules including a 5-request concurrency test. Deployed on a VPS behind Nginx reverse proxy with Let's Encrypt SSL — live demo: https://taskmind-ai.com/flyrank-be-08/demo",
+    "description": "Executive analytics & branded PDF reporting engine with single-flight concurrency, idempotency, and an immediate 0ms-TTFB PDF streaming endpoint \u2014 deployed on a VPS behind Nginx.",
+    "fullDescription": "An executive analytics and PDF reporting engine for the FlyRank Backend Track. Queries the BE-06-Scraper SQLite database (1,000 books), generates FL-05 Identity Kit-branded PDF reports (Inter & JetBrains Mono, Sky Blue #0284c7), and serves them through dual modes: a standard endpoint (POST /reports) returning a file link, and an advanced immediate streaming endpoint (POST /reports/stream) that streams PDF bytes in 8KB chunks straight from memory or disk with 0ms TTFB on idempotent hits.\\n\\nArchitecture highlights: clean 4-layer separation (routers \u2192 services \u2192 repository \u2192 SQLite, with zero SQL outside the repository layer), a Single-Flight asyncio.Lock with double-check pattern preventing race conditions under concurrent generation, same-day idempotency (duplicate requests reuse the existing PDF), SQL aggregations computed directly in SQLite with performance indexes (idx_books_category/rating/price), and a configurable catalog cap (max_catalog_limit) with truncation badge.\\n\\nPDF generation uses Jinja2 template decoupling (design changes require zero backend edits) with Playwright headless Chromium rendering to pixel-perfect A4 bytes, isolated in a thread-pool executor for Windows Proactor compatibility. Includes a lightweight live streaming monitor dashboard (GET /demo) demonstrating real-time ReadableStream chunk reading with live TTFB, chunk counters, and PDF preview. 23 passing pytest tests across 6 modules including a 5-request concurrency test. Deployed on a VPS behind Nginx reverse proxy with Let's Encrypt SSL \u2014 live demo: https://taskmind-ai.com/flyrank-be-08/demo",
     "githubUrl": "https://github.com/tdk67/flyrank-assignments/tree/main/BE-08-PDFReport",
     "deployedUrl": "https://taskmind-ai.com/flyrank-be-08/docs",
     "linkedinUrl": null,
-    "tags": ["python", "backend", "tool"]
+    "tags": [
+      "python",
+      "backend",
+      "tool"
+    ]
   },
   {
     "id": "lyric-lens",
@@ -140,6 +207,11 @@
     "githubUrl": "https://github.com/tdk67/lyric-lens-emergent",
     "deployedUrl": "https://doc-review-app-3.emergent.host",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-builderschallenge-emergent-ugcPost-7480040508086599680-ggb8",
-    "tags": ["typescript", "frontend", "ai", "music"]
+    "tags": [
+      "typescript",
+      "frontend",
+      "ai",
+      "music"
+    ]
   }
 ]
