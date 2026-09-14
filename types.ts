@@ -7,5 +7,7 @@ export interface Project {
   githubUrl?: string | null;
   deployedUrl?: string | null;
   linkedinUrl?: string | null;
+  videoUrl?: string | null;
+  videoLabel?: string | null;
   tags: string[];
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Folder, Calendar as CalendarIcon, LayoutTemplate, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Folder, Calendar as CalendarIcon, LayoutTemplate, Menu, X, ChevronDown, ChevronRight, Tag } from "lucide-react";
 import projects from "@/data/projects.json";
 import type { Project } from "@/types";
 
@@ -75,55 +75,75 @@ export function Sidebar({
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpenMobile(true)}
-        className="md:hidden fixed bottom-6 right-6 z-40 bg-slate-900 text-white p-3 rounded-full shadow-lg"
-        aria-label="Open Menu"
+        className="md:hidden fixed bottom-6 right-6 z-40 bg-slate-900 hover:bg-slate-800 text-white p-3.5 rounded-full shadow-xl border border-amber-300/40 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all transform hover:scale-105"
+        aria-label="Open filter sidebar menu"
       >
-        <Menu size={24} />
+        <Menu size={22} />
       </button>
 
       {/* Overlay for mobile */}
       {isOpenMobile && (
         <div
-          className="md:hidden fixed inset-0 bg-slate-900/20 z-40 backdrop-blur-sm"
+          className="md:hidden fixed inset-0 bg-slate-950/40 z-40 backdrop-blur-xs transition-opacity"
           onClick={() => setIsOpenMobile(false)}
         />
       )}
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed md:sticky top-0 left-0 h-screen w-64 bg-slate-50 border-r border-slate-200 p-6 overflow-y-auto
-        transition-transform duration-300 z-50 md:translate-x-0 ${
+        className={`fixed md:sticky top-0 left-0 h-screen w-68 bg-[#FAF6EE] border-r border-amber-900/10 p-5 sm:p-6 overflow-y-auto
+        transition-transform duration-300 z-50 md:translate-x-0 shadow-sm ${
           isOpenMobile ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
-            <div className="bg-slate-900 rounded p-1.5">
-              <Folder className="text-white" size={18} />
+        {/* Brand Header */}
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-amber-900/10">
+          <div className="flex items-center gap-2.5">
+            <div className="p-1.5 rounded-xl bg-slate-900 text-white shadow-xs transform -rotate-2">
+              <Folder size={18} className="text-amber-400" />
             </div>
-            <span className="font-bold text-slate-900 tracking-tight">Portfolio</span>
+            <div>
+              <span className="font-extrabold text-slate-900 tracking-tight block text-base leading-none">
+                Navigation
+              </span>
+              <span className="text-[11px] font-semibold text-slate-500 tracking-wider uppercase">
+                Filter Archive
+              </span>
+            </div>
           </div>
           <button
-            className="md:hidden text-slate-400 hover:text-slate-600"
+            className="md:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-amber-100/50 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500"
             onClick={() => setIsOpenMobile(false)}
+            aria-label="Close sidebar menu"
           >
             <X size={20} />
           </button>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-7">
           {/* Views */}
           <div>
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Views
+            <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5 px-1 flex items-center justify-between">
+              <span>Views</span>
+              {(selectedCategory || selectedDate) && (
+                <button
+                  onClick={() => {
+                    onSelectCategory(null);
+                    onSelectDate(null);
+                  }}
+                  className="text-[10px] text-sky-700 hover:underline font-semibold lowercase"
+                >
+                  reset
+                </button>
+              )}
             </h4>
             <ul className="space-y-1">
               <li>
                 <button
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition-all ${
                     !selectedCategory && !selectedDate
-                      ? "bg-slate-200/50 text-slate-900 font-medium"
-                      : "text-slate-600 hover:bg-slate-100"
+                      ? "bg-amber-100/80 text-amber-950 font-bold border border-amber-300/70 shadow-2xs"
+                      : "text-slate-700 hover:bg-amber-100/40 hover:text-slate-900"
                   }`}
                   onClick={() => {
                     onSelectCategory(null);
@@ -132,10 +152,16 @@ export function Sidebar({
                   }}
                 >
                   <div className="flex items-center gap-2.5">
-                    <LayoutTemplate size={16} />
-                    <span>Timeline</span>
+                    <LayoutTemplate size={16} className={!selectedCategory && !selectedDate ? "text-amber-700" : "text-slate-500"} />
+                    <span>All Projects</span>
                   </div>
-                  <span className="text-xs bg-slate-200 text-slate-600 px-1.5 py-0.5 rounded-full font-medium">
+                  <span
+                    className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                      !selectedCategory && !selectedDate
+                        ? "bg-amber-200/90 text-amber-950"
+                        : "bg-amber-100/60 text-slate-600"
+                    }`}
+                  >
                     {projects.length}
                   </span>
                 </button>
@@ -143,10 +169,11 @@ export function Sidebar({
             </ul>
           </div>
 
-          {/* Date */}
+          {/* Date Filter */}
           <div>
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Date
+            <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5 px-1 flex items-center gap-1.5">
+              <CalendarIcon size={12} className="text-amber-600" />
+              <span>Timeline Archive</span>
             </h4>
             <ul className="space-y-1">
               {dates.map((d) => {
@@ -155,10 +182,10 @@ export function Sidebar({
                 return (
                   <li key={`${d.year}-${d.month}`}>
                     <button
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                      className={`w-full flex items-center justify-between px-3 py-1.5 rounded-xl text-sm transition-all ${
                         isActive
-                          ? "bg-blue-50 text-blue-700 font-medium"
-                          : "text-slate-600 hover:bg-slate-100"
+                          ? "bg-sky-100 text-sky-900 font-bold border border-sky-300/80 shadow-2xs"
+                          : "text-slate-700 hover:bg-amber-100/40 hover:text-slate-900"
                       }`}
                       onClick={() => {
                         onSelectDate(
@@ -168,10 +195,22 @@ export function Sidebar({
                       }}
                     >
                       <div className="flex items-center gap-2.5">
-                        <CalendarIcon size={16} className={isActive ? "text-blue-500" : "text-slate-400"} />
+                        <span
+                          className={`w-1.5 h-1.5 rounded-full ${
+                            isActive ? "bg-sky-600 ring-2 ring-sky-300" : "bg-slate-300"
+                          }`}
+                        />
                         <span>{d.label}</span>
                       </div>
-                      <span className="text-xs text-slate-400">{d.count}</span>
+                      <span
+                        className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${
+                          isActive
+                            ? "bg-sky-200/90 text-sky-900"
+                            : "text-slate-400 bg-amber-50"
+                        }`}
+                      >
+                        {d.count}
+                      </span>
                     </button>
                   </li>
                 );
@@ -183,44 +222,53 @@ export function Sidebar({
           <div>
             <button
               onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-              className="w-full flex items-center gap-1.5 mb-3 group"
+              className="w-full flex items-center justify-between mb-2.5 px-1 group cursor-pointer"
             >
-              {isCategoriesOpen ? (
-                <ChevronDown size={14} className="text-slate-400 group-hover:text-slate-600" />
-              ) : (
-                <ChevronRight size={14} className="text-slate-400 group-hover:text-slate-600" />
-              )}
-              <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider group-hover:text-slate-600 transition-colors">
-                Categories
-              </h4>
+              <div className="flex items-center gap-1.5">
+                <Tag size={12} className="text-amber-600" />
+                <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-slate-800 transition-colors">
+                  Categories
+                </h4>
+              </div>
+              <div className="text-slate-400 group-hover:text-slate-700 transition-colors">
+                {isCategoriesOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+              </div>
             </button>
             
             {isCategoriesOpen && (
-              <ul className="space-y-1 pl-2 border-l border-slate-200 ml-1.5 mt-2">
+              <ul className="space-y-1 pl-1.5 border-l-2 border-amber-900/10 ml-2 mt-1">
                 {categories.map(([tag, count]) => {
                   const isActive = selectedCategory === tag;
                   return (
                     <li key={tag}>
                       <button
-                        className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-sm transition-all ${
                           isActive
-                            ? "bg-blue-50 text-blue-700 font-medium"
-                            : "text-slate-600 hover:bg-slate-100"
+                            ? "bg-sky-100 text-sky-900 font-bold border border-sky-300/80 shadow-2xs"
+                            : "text-slate-700 hover:bg-amber-100/40 hover:text-slate-900"
                         }`}
                         onClick={() => {
                           onSelectCategory(isActive ? null : tag);
                           setIsOpenMobile(false);
                         }}
                       >
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-2">
                           <span
-                            className={`w-1 h-1 rounded-full ${
-                              isActive ? "bg-blue-500" : "bg-slate-300"
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              isActive ? "bg-sky-600 ring-2 ring-sky-300" : "bg-amber-400/80"
                             }`}
                           />
-                          <span className="capitalize">{tag}</span>
+                          <span className="capitalize font-medium">{tag}</span>
                         </div>
-                        <span className="text-xs text-slate-400">{count}</span>
+                        <span
+                          className={`text-xs px-1.5 py-0.5 rounded-full ${
+                            isActive
+                              ? "bg-sky-200/90 text-sky-900 font-semibold"
+                              : "text-slate-400 bg-amber-50"
+                          }`}
+                        >
+                          {count}
+                        </span>
                       </button>
                     </li>
                   );

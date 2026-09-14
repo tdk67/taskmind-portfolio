@@ -8,6 +8,7 @@ import { ProjectCard } from "./components/ProjectCard";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
+import { Sparkles, Calendar, X } from "lucide-react";
 
 const typedProjects = projects as Project[];
 const ITEMS_PER_PAGE = 10;
@@ -32,6 +33,13 @@ export default function Home() {
 
   const handleSearchChange = useCallback((s: string) => {
     setSearch(s);
+    setCurrentPage(1);
+  }, []);
+
+  const clearAllFilters = useCallback(() => {
+    setSearch("");
+    setSelectedCategory(null);
+    setSelectedDate(null);
     setCurrentPage(1);
   }, []);
 
@@ -75,7 +83,7 @@ export default function Home() {
   );
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-[#FBF8F2]">
       {/* Sidebar - fixed left side */}
       <Sidebar
         selectedCategory={selectedCategory}
@@ -87,80 +95,174 @@ export default function Home() {
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 bg-white">
+      <div className="flex-1 flex flex-col min-w-0">
         <Header />
 
-        <main className="flex-1 max-w-4xl w-full mx-auto px-6 pt-12 pb-8">
-          {/* Intro */}
-          <section className="mb-10">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
-              Projects &amp; Experiments
-            </h1>
-            <p className="text-slate-500 text-lg leading-relaxed max-w-xl">
-              A curated timeline of software projects spanning backend systems,
-              AI/ML tooling, and creative web applications.
-            </p>
+        <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-16">
+
+
+          {/* Search & Active Filters Header */}
+          <section className="mb-10 space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Sparkles size={18} className="text-amber-500" />
+                <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+                  Search &amp; Filter Timeline
+                </h2>
+              </div>
+              <span className="text-xs text-slate-500 font-medium">
+                Showing {filtered.length} of {typedProjects.length} projects
+              </span>
+            </div>
+
+            <FilterBar search={search} onSearchChange={handleSearchChange} />
+
+            {/* Active filter pills */}
+            {(search || selectedCategory || selectedDate) && (
+              <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
+                <span className="font-semibold text-slate-500">Active filters:</span>
+                {search && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-200 font-medium">
+                    Search: &ldquo;{search}&rdquo;
+                    <button
+                      onClick={() => handleSearchChange("")}
+                      className="hover:text-sky-950 p-0.5"
+                      aria-label="Remove search filter"
+                    >
+                      <X size={12} />
+                    </button>
+                  </span>
+                )}
+                {selectedCategory && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-medium">
+                    Category: {selectedCategory}
+                    <button
+                      onClick={() => handleCategorySelect(null)}
+                      className="hover:text-amber-950 p-0.5"
+                      aria-label="Remove category filter"
+                    >
+                      <X size={12} />
+                    </button>
+                  </span>
+                )}
+                {selectedDate && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-100 text-sky-900 border border-sky-200 font-medium">
+                    Date: {new Date(selectedDate.year, selectedDate.month).toLocaleString("default", { month: "short", year: "numeric" })}
+                    <button
+                      onClick={() => handleDateSelect(null)}
+                      className="hover:text-sky-950 p-0.5"
+                      aria-label="Remove date filter"
+                    >
+                      <X size={12} />
+                    </button>
+                  </span>
+                )}
+                <button
+                  onClick={clearAllFilters}
+                  className="text-xs text-sky-700 hover:text-sky-900 font-semibold underline underline-offset-2 ml-1"
+                >
+                  Clear all
+                </button>
+              </div>
+            )}
           </section>
 
-          {/* Search Bar */}
-          <section className="mb-12">
-            <FilterBar
-              search={search}
-              onSearchChange={handleSearchChange}
-            />
-          </section>
-
-          {/* Timeline */}
-          <section>
+          {/* Timeline Section */}
+          <section id="timeline" className="scroll-mt-24">
             <div className="relative pl-0 sm:pl-10">
-              {/* Vertical line */}
-              <div className="hidden sm:block absolute left-[19px] top-3 bottom-3 w-0.5 bg-slate-100" />
+              {/* Vertical line styled with custom gradient */}
+              <div className="hidden sm:block absolute left-[19px] top-4 bottom-4 w-0.5 timeline-line rounded-full" />
 
               {paginatedProjects.length === 0 ? (
-                <div className="py-20 text-center text-slate-400">
-                  <p className="text-lg font-medium">No matching projects</p>
-                  <p className="text-sm mt-1">
-                    Try adjusting your search or filters.
+                <div className="py-20 text-center bg-white/60 rounded-3xl border border-dashed border-amber-900/15 p-8">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto mb-3">
+                    <Calendar size={24} />
+                  </div>
+                  <p className="text-lg font-bold text-slate-800">No matching projects</p>
+                  <p className="text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+                    Try adjusting your search query or selecting a different category or date filter.
                   </p>
+                  <button
+                    onClick={clearAllFilters}
+                    className="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-sky-600 text-white hover:bg-sky-700 transition-colors shadow-xs"
+                  >
+                    Reset all filters
+                  </button>
                 </div>
               ) : (
                 <>
                   <ul className="space-y-10 mb-12">
-                    {paginatedProjects.map((project, i) => (
-                      <li
-                        key={project.id}
-                        className="relative animate-fade-in-up"
-                        style={{ animationDelay: `${i * 0.08}s` }}
-                      >
-                        {/* Dot on the timeline */}
-                        <div className="hidden sm:flex absolute -left-[31px] top-7 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-white z-[1]" />
+                    {paginatedProjects.map((project, i) => {
+                      const projectYear = new Date(project.date).getFullYear();
+                      const prevYear =
+                        i > 0
+                          ? new Date(paginatedProjects[i - 1].date).getFullYear()
+                          : null;
+                      const isNewYear = i === 0 || projectYear !== prevYear;
 
-                        <ProjectCard project={project} index={i} />
-                      </li>
-                    ))}
+                      return (
+                        <li
+                          key={project.id}
+                          className="relative animate-fade-in-up"
+                          style={{ animationDelay: `${i * 0.08}s` }}
+                        >
+                          {/* Year marker chip on year transition */}
+                          {isNewYear && (
+                            <div className="relative flex items-center gap-3 mb-6 sm:-ml-10">
+                              <div className="hidden sm:flex items-center justify-center px-2.5 py-1 rounded-full bg-amber-500 text-white font-extrabold text-xs shadow-md ring-4 ring-[#FBF8F2] z-10">
+                                {projectYear}
+                              </div>
+                              <span className="sm:hidden px-3 py-1 rounded-full bg-amber-100 text-amber-950 border border-amber-300 text-xs font-bold shadow-2xs">
+                                {projectYear}
+                              </span>
+                              <div className="h-px flex-1 bg-gradient-to-r from-amber-300/80 via-amber-200/40 to-transparent" />
+                            </div>
+                          )}
+
+                          {/* Pulsing Dot on the timeline */}
+                          <div className="hidden sm:flex absolute -left-[31px] top-8 w-3.5 h-3.5 rounded-full bg-sky-600 ring-4 ring-[#FBF8F2] shadow-sm animate-dot-pulse z-[1]" />
+
+                          <ProjectCard project={project} index={i} />
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {/* Pagination Controls */}
                   {totalPages > 1 && (
-                    <div className="flex items-center justify-between border-t border-slate-100 pt-6">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-amber-900/10 pt-6">
                       <button
-                        onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                        onClick={() => {
+                          setCurrentPage((p) => Math.max(1, p - 1));
+                          const el = document.getElementById("timeline");
+                          if (el) el.scrollIntoView({ behavior: "smooth" });
+                        }}
                         disabled={currentPage === 1}
-                        className="px-4 py-2 text-sm font-medium rounded-lg bg-slate-50 text-slate-700
-                                   hover:bg-slate-100 disabled:opacity-50 disabled:pointer-events-none transition-colors"
+                        className="px-5 py-2.5 text-sm font-semibold rounded-2xl bg-white border border-amber-900/15 text-slate-700
+                                   hover:bg-amber-50/80 hover:text-sky-700 hover:border-sky-300 disabled:opacity-40
+                                   disabled:pointer-events-none transition-all shadow-2xs focus:outline-none focus:ring-2 focus:ring-sky-500 w-full sm:w-auto text-center"
                       >
-                        Previous
+                        ← Previous
                       </button>
-                      <span className="text-sm text-slate-500">
-                        Page {currentPage} of {totalPages}
-                      </span>
+
+                      <div className="flex items-center gap-2">
+                        <span className="px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/70 text-xs font-bold text-amber-950 shadow-2xs">
+                          Page {currentPage} of {totalPages}
+                        </span>
+                      </div>
+
                       <button
-                        onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                        onClick={() => {
+                          setCurrentPage((p) => Math.min(totalPages, p + 1));
+                          const el = document.getElementById("timeline");
+                          if (el) el.scrollIntoView({ behavior: "smooth" });
+                        }}
                         disabled={currentPage === totalPages}
-                        className="px-4 py-2 text-sm font-medium rounded-lg bg-slate-50 text-slate-700
-                                   hover:bg-slate-100 disabled:opacity-50 disabled:pointer-events-none transition-colors"
+                        className="px-5 py-2.5 text-sm font-semibold rounded-2xl bg-white border border-amber-900/15 text-slate-700
+                                   hover:bg-amber-50/80 hover:text-sky-700 hover:border-sky-300 disabled:opacity-40
+                                   disabled:pointer-events-none transition-all shadow-2xs focus:outline-none focus:ring-2 focus:ring-sky-500 w-full sm:w-auto text-center"
                       >
-                        Next
+                        Next →
                       </button>
                     </div>
                   )}
