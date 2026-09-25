@@ -3,13 +3,13 @@
     "id": "jobagent",
     "title": "JobAgent — Autonomous Career CRM & Statutory Compliance Engine",
     "date": "2026-09-14",
-    "description": "A **local-first, autonomous career dashboard** that turns chaotic job hunting into a single intelligent cockpit: 1-click posting archive with Markdown + PDF snapshots, multi-protocol email triage with genuine **interview detection** (even in German), and automatic **Agentur für Arbeit** proof reports. Built on the **AWS Strands Agents SDK** \u2014 zero PII leaves your machine.",
-    "fullDescription": "**JobAgent** is an autonomous background agent for job seekers, submitted to the **Agents for Humans** hackathon (AWS Strands Agents SDK). It turns the chaos of job hunting \u2014 expiring postings, scattered emails, hidden interview invites \u2014 into a single intelligent cockpit with zero PII leaving the machine.\n\n**What it does:**\n- **Dual-asset archiving** \u2014 1-click browser extension captures a clean Markdown brief *and* a pixel-perfect PDF snapshot before the posting disappears\n- **3-tier email triage** \u2014 deterministic rules \u2192 offline ML classifier \u2192 Gemini semantic reasoning detects genuine interview invitations (including German 'Einladung zum Vorstellungsgespr\u00e4ch'), filters recruiter spam/webinars, tracks Applied \u2192 Interview \u2192 Rejected lifecycles\n- **Statutory compliance** \u2014 automatically compiles the official German **Agentur f\u00fcr Arbeit** proof table (*Eigenbem\u00fchungsnachweis*, \u00a7138 SGB III) as print-ready PDF\n- **Agent-to-Agent (A2A) & MCP server** \u2014 Telegram, Claude Desktop, Cursor and other parent agents query and control JobAgent via standard A2A/SSE endpoints\n- **100% local-first** \u2014 SQLite CRM + local archive; optional Ollama for true zero-cloud inference\n\n**Architecture:** Strands Agent Coordinator (Gemini) orchestrating EmailIngestTool \u2192 JobArchiveTool \u2192 ReportRenderTool over a local SQLite CRM, exposed via FastAPI A2A gateway + MCP and a Chrome Manifest V3 Copilot extension.\n\n**Quality:** 49-test suite (PII/secret scans clean across full git history), adversarial QA pass, DNS-rebinding-guarded loopback gateway.\n\nDemo video (2:02, narrated): screencast replayed with Frame Talk's synchronized two-host walkthrough. Code: https://github.com/tdk67/jobagent",
+    "description": "A **local-first, autonomous career dashboard** that turns chaotic job hunting into a single intelligent cockpit: 1-click posting archive with Markdown + PDF snapshots, multi-protocol email triage with genuine **interview detection** (even in German), and automatic **Agentur für Arbeit** proof reports. Built on the **AWS Strands Agents SDK** — zero PII leaves your machine.",
+    "fullDescription": "**JobAgent** is an autonomous background agent for job seekers, submitted to the **Agents for Humans** hackathon (AWS Strands Agents SDK). It turns the chaos of job hunting — expiring postings, scattered emails, hidden interview invites — into a single intelligent cockpit with zero PII leaving the machine.\n\n**What it does:**\n- **Dual-asset archiving** — 1-click browser extension captures a clean Markdown brief *and* a pixel-perfect PDF snapshot before the posting disappears\n- **3-tier email triage** — deterministic rules → offline ML classifier → Gemini semantic reasoning detects genuine interview invitations (including German 'Einladung zum Vorstellungsgespräch'), filters recruiter spam/webinars, tracks Applied → Interview → Rejected lifecycles\n- **Statutory compliance** — automatically compiles the official German **Agentur für Arbeit** proof table (*Eigenbemühungsnachweis*, §138 SGB III) as print-ready PDF\n- **Agent-to-Agent (A2A) & MCP server** — Telegram, Claude Desktop, Cursor and other parent agents query and control JobAgent via standard A2A/SSE endpoints\n- **100% local-first** — SQLite CRM + local archive; optional Ollama for true zero-cloud inference\n\n**Architecture:** Strands Agent Coordinator (Gemini) orchestrating EmailIngestTool → JobArchiveTool → ReportRenderTool over a local SQLite CRM, exposed via FastAPI A2A gateway + MCP and a Chrome Manifest V3 Copilot extension.\n\n**Quality:** 49-test suite (PII/secret scans clean across full git history), adversarial QA pass, DNS-rebinding-guarded loopback gateway.\n\nDemo video (2:02, narrated): screencast replayed with Frame Talk's synchronized two-host walkthrough. Code: https://github.com/tdk67/jobagent",
     "githubUrl": "https://github.com/tdk67/jobagent",
     "deployedUrl": null,
     "linkedinUrl": null,
     "videoUrl": "/jobagent-demo.mp4",
-    "videoLabel": "\u25b6 Watch demo (2:02)",
+    "videoLabel": "▶ Watch demo (2:02)",
     "tags": [
       "python",
       "fullstack",
@@ -248,6 +248,25 @@
       "frontend",
       "ai",
       "music"
+    ]
+  },
+  {
+    "id": "rag6-supply-chain",
+    "title": "Aethelgard Infra-GraphRAG — Tri-Modal Supply Chain Intelligence",
+    "date": "2026-09-25",
+    "description": "An autonomous **Agentic GraphRAG engine** for sovereign AI data-center supply chains: unifies a **332-node NetworkX knowledge graph**, **ChromaDB sovereign-contract vectors**, and a **SQLite BOM/PO SSOT** behind a 6-pattern adaptive intent router, prompt-injection guardrails, ABAC persona clearance, and zero-hallucination citations.",
+    "fullDescription": "**Aethelgard Infra-GraphRAG** (rag6-supply-chain) is a tri-modal sovereign infrastructure & supply-chain intelligence engine that answers operational, legal, and financial questions about AI data-center hardware supply chains — from a Streamlit showcase with 4 workspaces:\n\n- **AI Decision Console** — 6 adaptive GraphRAG reasoning patterns (`P1` text-to-cypher audits, `P2` parallel hybrid, `P3` graph-first cascade, `P4` table-first comparisons, `P5` vector-primary compliance, `P6` agentic multi-step crisis loops) with a reflection loop and confidence-scored, footnoted citations\n- **Disruption Simulator** — 1-click scenario mutation (e.g., Taiwan embargo, vendor restructuring) that re-projects the graph dynamically under CQRS and surfaces procurement backorders from `dock_receipts` triangulation\n- **Knowledge Base Analytics** — live PyVis graph visualization + ChromaDB collection metrics\n- **Ingestion & Lifecycle** — document upload, hashing, version deprecation, and vector re-indexing\n\n**Security & sovereignty:** 4 ABAC persona viewpoints (CTO / Procurement / General Counsel / SRE — SRE is blocked from legal clauses), prompt-injection pre/post retrieval guardrails, EU data-residency provider routing, and a deterministic **offline fallback mode** that keeps the whole demo functional with **zero API keys**.\n\n**Stack:** Python 3.11, Streamlit, ChromaDB (BGE small embeddings), NetworkX, SQLite SSOT, PyMuPDF, OpenRouter adapter, hexagonal ports & DI registry.\n\n**Validation:** 27/27 pytest suite + 10/10 benchmark RAG queries (faithfulness 0.94, correctness 1.00, citation accuracy 1.00). Fully containerized with Docker and deployed via nginx reverse proxy.",
+    "githubUrl": "https://github.com/tdk67/rag6-supply-chain",
+    "deployedUrl": "https://supply-chain.taskmind-ai.com",
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "tags": [
+      "python",
+      "fullstack",
+      "ai",
+      "infra",
+      "security"
     ]
   }
 ]
