@@ -150,14 +150,16 @@
     "description": "Intelligent **agentic system** that matches CVs against job descriptions with high precision.",
     "fullDescription": "A **sophisticated agentic AI pipeline** designed to streamline recruitment. It parses raw CV data, compares it against complex job descriptions, and provides detailed compatibility scoring. Built with modern ML principles, it goes beyond keyword matching to interpret **context and intent**, significantly reducing time spent on initial candidate screening.",
     "githubUrl": "https://github.com/tdk67/cv-matcher",
-    "deployedUrl": "https://cv-matcher.taskmind-ai.com",
+    "deployedUrl": "https://cv-matcher-tdeak67.streamlit.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_genai-ml-agenticai-ugcPost-7482790023650586624-VfVQ",
     "tags": [
       "python",
       "fullstack",
       "ai",
       "tool"
-    ]
+    ],
+    "reportUrl": "/cv-matcher-capstone-report.pdf",
+    "reportLabel": "Capstone Report"
   },
   {
     "id": "screencast-podcast",

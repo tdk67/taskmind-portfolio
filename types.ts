@@ -9,5 +9,7 @@ export interface Project {
   linkedinUrl?: string | null;
   videoUrl?: string | null;
   videoLabel?: string | null;
+  reportUrl?: string | null;
+  reportLabel?: string | null;
   tags: string[];
 }

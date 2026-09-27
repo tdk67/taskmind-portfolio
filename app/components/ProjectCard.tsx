@@ -223,6 +223,21 @@ export function ProjectCard({
                 <span>{project.videoLabel ?? "Demo"}</span>
               </a>
             )}
+            {project.reportUrl && (
+              <a
+                href={project.reportUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700
+                           text-white text-xs font-semibold shadow-xs transition-all transform hover:-translate-y-0.5
+                           focus:outline-none focus:ring-2 focus:ring-emerald-500 group/link"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="group-hover/link:scale-110 transition-transform">
+                  <path d="M12 3l2.5 0v10l-2.5 0M5 3l2.5 0v10l-2.5 0M8 3v12" />
+                </svg>
+                <span>{project.reportLabel ?? "Report"}</span>
+              </a>
+            )}
           </div>
 
           {videoPlaying && project.videoUrl && (
