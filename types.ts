@@ -10,6 +10,7 @@ export interface Project {
   videoUrl?: string | null;
   videoLabel?: string | null;
   reportUrl?: string | null;
+  devpostUrl?: string | null;
   reportLabel?: string | null;
   tags: string[];
 }

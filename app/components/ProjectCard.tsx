@@ -191,6 +191,21 @@ export function ProjectCard({
                 <span>Live Demo</span>
               </a>
             )}
+            {project.devpostUrl && (
+              <a
+                href={project.devpostUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-rose-600 hover:bg-rose-700
+                           text-white text-xs font-semibold shadow-xs transition-all transform hover:-translate-y-0.5
+                           focus:outline-none focus:ring-2 focus:ring-rose-500 group/link"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="group-hover/link:scale-110 transition-transform">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-7l6 3.5-6 3.5z"/>
+                </svg>
+                <span>Devpost</span>
+              </a>
+            )}
             {project.linkedinUrl && (
               <a
                 href={project.linkedinUrl}
