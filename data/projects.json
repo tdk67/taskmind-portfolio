@@ -1,5 +1,25 @@
 [
   {
+    "id": "grantloom",
+    "title": "GrantLoom — AI Grant Intelligence & Compliance Appliance",
+    "date": "2026-10-13",
+    "description": "A **self-hosted RAG appliance** for academic research labs: cross-references grant solicitations against institutional documents and answers with citations that resolve to **file, page, line, sheet and row** coordinates. Four LLM-judged guardrail gates (G1–G4), a bounded rewrite loop with explicit *unverified* warnings, compliance matrix with Satisfied/Partial/Gap evidence, and a golden-set evaluation harness that reports its own measurement caveats.",
+    "fullDescription": "**GrantLoom** weaves funding solicitations and lab documents into verifiable answers. Ingestion runs through an async SQLite outbox (extract → chunk → two-tier injection scan → embed → index into ChromaDB vectors, FTS5 keywords, spreadsheet tables and a KùzuDB knowledge graph), with content-hash dedup, versioning, quarantine and a deletion saga that purges every store.\n\nQuestions flow through a single agent pipeline — **Planner → Retriever → Writer → Validator** — streamed as SSE. The writer only emits `[chunk_id]` markers; the backend resolves them to physical coordinates and an **independent judge model** (different family, NFR-6) verifies every claim against its cited evidence, driving a bounded rewrite loop. Retrieval fuses dense + BM25 (RRF) with two extra tools: LLM-written SQL over spreadsheet schemas (AST-guarded, results become citable chunks) and graph traversal over extracted entities.\n\nThe decision layer is a typed **DecisionBackendPort**: a prompt-based LLM judge primary with a labelled, metered heuristic fallback — degradation is never silent. Deployment is a multi-stage Docker image (non-root, ~230 MB RSS) behind nginx with TLS, unbuffered SSE and per-IP rate limiting, running in **public BYOK mode**: zero server-side secrets — every visitor's inference runs on their own live-probed OpenRouter key (deepseek-v4-flash writer, gpt-4o-mini judge). Prometheus scrapes custom gate/tool/ingestion metrics.",
+    "githubUrl": "https://github.com/tdk67/grantloom",
+    "deployedUrl": "https://grantloom.taskmind-ai.com",
+    "devpostUrl": null,
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "tags": [
+      "python",
+      "fullstack",
+      "ai",
+      "backend",
+      "tool"
+    ]
+  },
+  {
     "id": "pii-guardrail",
     "title": "Latch — Zero-Trust Neural PII Pre-Commit Guardrail",
     "date": "2026-10-03",
