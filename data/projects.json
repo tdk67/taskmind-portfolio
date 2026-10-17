@@ -310,5 +310,28 @@
       "infra",
       "security"
     ]
+  },
+  {
+    "id": "music-analyzer",
+    "title": "Song Blueprint Analyzer — Music Analyzer",
+    "date": "2026-06-14",
+    "description": "**Serverless, client-side music analyzer**: upload an MP3/WAV and get a structured musicological blueprint — local Web Audio DSP tempo estimation plus a multimodal LLM (BYOK via OpenRouter) that identifies key, BPM, genre, instruments, song structure and synced lyrics with an interactive energy timeline.",
+    "fullDescription": "**Song Blueprint Analyzer** turns a raw audio file into a complete, structured musicological breakdown — entirely in the browser, with zero server-side storage.\n\nLocal DSP first: the audio is decoded client-side with the Web Audio API into PCM buffers, low-pass filtered at 150 Hz to isolate the kick, and peak-to-peak interval analysis estimates the BPM instantly. The track is then base64-encoded and sent to a multimodal LLM (e.g. `google/gemini-3.5-flash`) via OpenRouter using the `input_audio` block type — the model \"hears\" the track to identify the key, refine the BPM, tag genres, map dominant instruments, segment structural boundaries (Intro → Verse → Chorus → Bridge → Outro), transcribe time-synced lyrics, and output a dynamic energy timeline.\n\nA strict JSON schema with defensive parsing (markdown-wrap cleanup) populates interactive visual panels; clicking a lyric line or song-map section jumps the playhead to the exact timestamp on a WaveSurfer.js timeline, with a Recharts energy-over-time area chart. Bring-Your-Own-Key OpenRouter integration means no API keys are stored anywhere. React 19 + Vite + TypeScript, vanilla CSS cyber-dark UI.",
+    "githubUrl": "https://github.com/tdk67/music-analyzer",
+    "deployedUrl": "https://song-blueprint-tdeak67.netlify.app",
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "typescript",
+      "frontend",
+      "ai",
+      "music",
+      "audio",
+      "tool"
+    ]
   }
 ]
