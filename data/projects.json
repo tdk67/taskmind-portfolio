@@ -1,5 +1,27 @@
 [
   {
+    "id": "music-note-reader",
+    "title": "Music Note Reader — Precision Neural OMR & Audio Player",
+    "date": "2026-10-20",
+    "description": "A **100% local, zero-API-key** Optical Music Recognition system and interactive web player: upload a scanned sheet or PDF and get editable **MusicXML**, playable **multi-instrument WAV / MIDI** — every note, key signature and rhythm transcribed by a hybrid SegNet + Transformer neural pipeline.",
+    "fullDescription": "**Music Note Reader** converts scanned sheet music and PDF documents into editable **MusicXML**, playable multi-instrument polyphonic audio (WAV), and **Standard MIDI** — with zero cloud dependencies and no API keys.\n\n**Precision Neural OMR (TrOMR + SegNet)** — powered by `homr`'s hybrid SegNet staff/symbol segmentation and Transformer-based end-to-end sequence recognition, resolving key signatures, time signatures, clefs, notes, accidentals, ties, rests, and measures with pitch & rhythm accuracy.\n\n**Original sheet layout preservation** — the engine keeps the printed system breaks and measure-per-row layout (`<print new-system=\"yes\"/>`), so the rendered score mirrors the source page exactly.\n\n**Multi-instrument audio synthesis** — a built-in additive synthesizer with instrument-specific ADSR envelope modeling: 🎹 acoustic grand piano (hammer-strike percussive decay), ⛪ pipe/church organ (multi-rank harmonic plenum), 🎻 string ensemble (vibrato sawtooth), 🪈 concert flute (breathy woodwind), ⚡ electric piano (Rhodes bell-tine), ✨ music box/celesta (inharmonic chimes), and 👾 8-bit chiptune square waves.\n\n**Multi-format input & async pipeline** — PDFs rendered to crisp 300-DPI via `pypdfium2` (no external Poppler), plus PNG/JPG/WEBP uploads, with real-time 0–100% progress reporting across segmentation, dewarping, transformer inference, and synthesis stages.\n\n**Interactive vector engraving** — [OpenSheetMusicDisplay](https://opensheetmusicdisplay.org/) renders the MusicXML as interactive zoomable SVG with one-click downloads of WAV, MIDI, and MusicXML. FastAPI backend + async job worker, deployed as a Dockerized Cloud Run service.",
+    "githubUrl": "https://github.com/tdk67/music-note-reader",
+    "deployedUrl": "https://music-note-reader-442488405067.europe-west1.run.app",
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "python",
+      "fullstack",
+      "ai",
+      "music",
+      "tool"
+    ]
+  },
+  {
     "id": "grantloom",
     "title": "GrantLoom — AI Grant Intelligence & Compliance Appliance",
     "date": "2026-10-13",
