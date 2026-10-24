@@ -1,5 +1,27 @@
 [
   {
+    "id": "robot-test-wizard",
+    "title": "Robot Test Wizard — Grounded AI-Driven Test Automation Framework",
+    "date": "2026-10-23",
+    "description": "A **cloud-ready, data-driven test automation framework** built on Robot Framework 7.x and Playwright, where AI coding agents generate modern, hallucination-free test code grounded in dynamically reflected, version-locked library documentation (LEGO Architecture: code, YAML test data, env config, and masked secrets strictly separated).",
+    "fullDescription": "**Robot Test Wizard** rethinks test automation for the agent era: instead of letting LLMs hallucinate deprecated Robot Framework 3/4 syntax, the framework **grounds AI coding agents in their exact installed environment**.\n\n**Grounded AI generation (`tools/dump_libdocs.py`)** — runs Robot Framework's native `robot.libdoc` introspection against the precise library binaries in the active virtualenv (RF 7.x `VAR`/`RETURN`/`TRY EXCEPT`/`Secret`, Playwright Browser Library, RequestsLibrary, plus custom libraries) and compiles them into human-readable `docs/robot-libraries/*.md`, a `KEYWORDS_QUICKREF.md` index, and a `.agents/skills/robotframework-architect` skill (SKILL.md + reference mirrors) that coding agents like Antigravity/GitHub Copilot read before generating a single keyword — auditable via conversation transcripts.\n\n**LEGO Architecture** — `.robot` files are pure workflow orchestration with zero hardcoded data. All scenarios live in `resources/config/testdata/*.yaml` (e.g. single product, multi-product bundle, quantity duplication, negative catalog tests), environment parameters in `environments/<env>/env.yaml`, and user personas in `users.yaml`. A `DataLoader` pre-run `SuiteVisitor` AST modifier dynamically clones test cases per YAML scenario and injects environment config.\n\n**Zero-cleartext secrets** — credentials are never committed: `users.yaml` stores pointers (`secret_env`) to git-ignored `.env`, and `DataLoader` wraps them in `robot.api.types.Secret` so execution reports log strictly `<secret>`.\n\n**Structured PDF verification** — receipts downloaded during checkout are parsed from binary PDF streams into semantic XML via `pypdf`, then asserted with Robot Framework's XML library and **XPath** on line items and grand totals.\n\n**Fast-fail & graceful negative handling** — catalog existence is validated with `Browser.Get Element Count` (fails in 0s with a clean business error), while `TRY ... EXCEPT`-wrapped keywords validate expected YAML-defined error messages and conclude with `Pass Execution`.\n\n**Closed-loop `--dryrun` sandbox** — a zero-side-effect Robot Framework `--dryrun` acts as a ~3s semantic compiler for any agent-generated suite (keywords exist, argument types match, IF/TRY/FOR/WHILE block boundaries valid, YAML binds correctly), enabling an automated self-healing loop that only ships compilable tests.\n\n**Playwright vs. Selenium evaluation** — documented engineering comparison (in-process CDP WebSocket vs. HTTP JSON Wire, zero driver hell, native auto-waiting, strict-mode locators, network mocking, multi-engine Chromium/Firefox/WebKit coverage on Windows). Packaged with a Streamlit install-wizard and PowerShell/Batch quick runners.",
+    "githubUrl": "https://github.com/tdk67/robot-test-wizard",
+    "deployedUrl": null,
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_generating-robot-framework-tests-using-coding-ugcPost-7519538487663009792-bQ8J/",
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "python",
+      "ai",
+      "tool",
+      "fullstack",
+      "backend"
+    ]
+  },
+  {
     "id": "music-note-reader",
     "title": "Music Note Reader — Precision Neural OMR & Audio Player",
     "date": "2026-10-20",
