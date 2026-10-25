@@ -44,6 +44,26 @@
     ]
   },
   {
+    "id": "testing-new-models",
+    "title": "Testing New Models — Frontier AI Spatial Reasoning Benchmark",
+    "date": "2026-10-17",
+    "description": "A comparative benchmark suite evaluating **Gemini 4**, DeepSeek-V4, Qwen 3.8 Max and Kimi 3 on hard spatial-reasoning tasks: programmatic vector generation (SVG), animation mechanics, and an interactive **3D Jenga physics tower**.",
+    "fullDescription": "**Frontier AI Model Benchmark Suite** independently probes the latest frontier LLMs with three escalating spatial challenges.\n\n**The pelican-on-a-bicycle benchmark** — popularised by Simon Willison — exposes a model's internal world model: it must compose a rigid mechanical bicycle (matched wheel radii, closed diamond frame, handlebars, pedals) with organic pelican anatomy (webbed feet on pedals, wings on the bars) in a coherent Cartesian coordinate system it cannot see.\n\n**The toad & fly test** — spatial-temporal coordination: the fly buzzes a dynamic path while the toad's eyes track it, and the tongue strike projects to exact coordinates with contact adhesion and retraction.\n\n**Gemini 4's Jenga Tower** — the standout artifact under `gemini-4/`: a true WebGL/Three.js 3D scene with OrbitControls, directional lighting, and wooden-block texturing; rigid-body physics via Cannon.js (collision bounds, friction, mass distribution, collapse dynamics); and real-time structural load analysis telling which blocks are safe to extract.\n\nModels are ranked chronologically by release: Gemini 4 (Sep 30 — Oct 13, 2026), DeepSeek-V4 (Jul 31 — Oct 17), Qwen 3.8 Max (Jul 19 — Aug 3), Kimi 3 (Jul 16 — 27).\n\n**Try the live demo** — the Jenga tower simulator runs fully in the browser.",
+    "githubUrl": "https://github.com/tdk67/testing-new-models",
+    "deployedUrl": "https://6ad3f4057723d9bf1ff70696--jenga-tower-tdeak67.netlify.app",
+    "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-gemini-learninginpublic-ugcPost-7517347089417129984-kBTj/",
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "ai",
+      "frontend",
+      "tool"
+    ]
+  },
+  {
     "id": "grantloom",
     "title": "GrantLoom — AI Grant Intelligence & Compliance Appliance",
     "date": "2026-10-13",
