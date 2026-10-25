@@ -1,27 +1,21 @@
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 bg-[#FBF8F2]/90 backdrop-blur-md border-b border-amber-900/10 transition-colors">
+    <header className="sticky top-0 z-30 bg-paper/95 backdrop-blur-md border-b border-rule transition-colors">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <a
             href="#"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-xl"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 rounded-md"
             aria-label="Tamas Deak Portfolio Home"
           >
-            <div className="relative group transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
-              <img
-                src="/icon.svg"
-                alt="TD Monogram"
-                className="w-9 h-9 rounded-xl shadow-xs border border-slate-900/10"
-                width="36"
-                height="36"
-              />
+            <div className="w-9 h-9 rounded-md border border-rule-2 bg-paper-hi flex items-center justify-center text-ink font-display text-sm font-semibold">
+              TD
             </div>
             <div>
-              <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900">
+              <span className="text-lg sm:text-xl font-display font-semibold tracking-tight text-ink">
                 Tamas Deak
               </span>
-              <span className="ml-2 hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-100/90 text-sky-800 border border-sky-200/80">
+              <span className="ml-2 hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-ink-2 border border-rule bg-paper-2">
                 Agentic AI Engineer
               </span>
             </div>
@@ -33,16 +27,15 @@ export function Header() {
             href="https://tdeak67.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:text-sky-700 bg-white/80 hover:bg-white border border-amber-900/10 shadow-2xs transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-ink-2 hover:text-accent bg-paper-hi border border-rule keycap focus-visible:outline-2 focus-visible:outline-offset-2"
           >
             <span>tdeak67.com</span>
-            <span className="text-sky-600 font-bold">↗</span>
           </a>
           <a
             href="https://github.com/tdk67"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 text-slate-600 hover:text-slate-900 bg-white/70 hover:bg-white border border-amber-900/10 transition-all rounded-xl shadow-2xs hover:shadow-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="p-2 text-ink-2 hover:text-accent bg-paper-hi border border-rule keycap focus-visible:outline-2 focus-visible:outline-offset-2"
             aria-label="GitHub Profile"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -53,7 +46,7 @@ export function Header() {
             href="https://linkedin.com/in/tdeak67"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 text-[#0a66c2] hover:text-[#004182] bg-white/70 hover:bg-white border border-amber-900/10 transition-all rounded-xl shadow-2xs hover:shadow-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="p-2 text-accent bg-paper-hi border border-rule keycap focus-visible:outline-2 focus-visible:outline-offset-2"
             aria-label="LinkedIn Profile"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

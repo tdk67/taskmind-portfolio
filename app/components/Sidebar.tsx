@@ -75,7 +75,7 @@ export function Sidebar({
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpenMobile(true)}
-        className="md:hidden fixed bottom-6 right-6 z-40 bg-slate-900 hover:bg-slate-800 text-white p-3.5 rounded-full shadow-xl border border-amber-300/40 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all transform hover:scale-105"
+        className="md:hidden fixed bottom-6 right-6 z-40 bg-graphite text-graphite-ink p-3.5 rounded-md border border-rule focus-visible:outline-2 focus-visible:outline-offset-2"
         aria-label="Open filter sidebar menu"
       >
         <Menu size={22} />
@@ -84,35 +84,35 @@ export function Sidebar({
       {/* Overlay for mobile */}
       {isOpenMobile && (
         <div
-          className="md:hidden fixed inset-0 bg-slate-950/40 z-40 backdrop-blur-xs transition-opacity"
+          className="md:hidden fixed inset-0 bg-graphite/40 z-40"
           onClick={() => setIsOpenMobile(false)}
         />
       )}
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed md:sticky top-0 left-0 h-screen w-68 bg-[#FAF6EE] border-r border-amber-900/10 p-5 sm:p-6 overflow-y-auto
-        transition-transform duration-300 z-50 md:translate-x-0 shadow-sm ${
+        className={`fixed md:sticky top-0 left-0 h-screen w-68 bg-paper-2 border-r border-rule p-5 sm:p-6 overflow-y-auto
+        transition-transform duration-300 z-50 md:translate-x-0 ${
           isOpenMobile ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Brand Header */}
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-amber-900/10">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-rule">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-xl bg-slate-900 text-white shadow-xs transform -rotate-2">
-              <Folder size={18} className="text-amber-400" />
+            <div className="p-1.5 rounded-md bg-paper-hi border border-rule text-ink">
+              <Folder size={18} className="text-ink-2" />
             </div>
             <div>
-              <span className="font-extrabold text-slate-900 tracking-tight block text-base leading-none">
-                Navigation
+              <span className="font-display font-semibold text-ink tracking-tight block text-base leading-none">
+                Archive
               </span>
-              <span className="text-[11px] font-semibold text-slate-500 tracking-wider uppercase">
-                Filter Archive
+              <span className="text-xs font-medium text-muted">
+                filter &amp; browse
               </span>
             </div>
           </div>
           <button
-            className="md:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-amber-100/50 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="md:hidden p-1.5 rounded-md text-muted hover:text-ink hover:bg-paper-3 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
             onClick={() => setIsOpenMobile(false)}
             aria-label="Close sidebar menu"
           >
@@ -123,7 +123,7 @@ export function Sidebar({
         <div className="space-y-7">
           {/* Views */}
           <div>
-            <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5 px-1 flex items-center justify-between">
+            <h4 className="text-xs font-medium text-muted mb-2.5 px-1 flex items-center justify-between">
               <span>Views</span>
               {(selectedCategory || selectedDate) && (
                 <button
@@ -131,7 +131,7 @@ export function Sidebar({
                     onSelectCategory(null);
                     onSelectDate(null);
                   }}
-                  className="text-[10px] text-sky-700 hover:underline font-semibold lowercase"
+                  className="text-xs text-accent hover:underline font-medium"
                 >
                   reset
                 </button>
@@ -140,10 +140,10 @@ export function Sidebar({
             <ul className="space-y-1">
               <li>
                 <button
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium ${
                     !selectedCategory && !selectedDate
-                      ? "bg-amber-100/80 text-amber-950 font-bold border border-amber-300/70 shadow-2xs"
-                      : "text-slate-700 hover:bg-amber-100/40 hover:text-slate-900"
+                      ? "bg-accent-wash text-accent font-semibold border border-accent-edge"
+                      : "text-ink-2 hover:bg-paper-3 hover:text-ink"
                   }`}
                   onClick={() => {
                     onSelectCategory(null);
@@ -152,14 +152,14 @@ export function Sidebar({
                   }}
                 >
                   <div className="flex items-center gap-2.5">
-                    <LayoutTemplate size={16} className={!selectedCategory && !selectedDate ? "text-amber-700" : "text-slate-500"} />
+                    <LayoutTemplate size={16} className={!selectedCategory && !selectedDate ? "text-accent" : "text-muted"} />
                     <span>All Projects</span>
                   </div>
                   <span
-                    className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                    className={`text-xs px-2 py-0.5 rounded-md border ${
                       !selectedCategory && !selectedDate
-                        ? "bg-amber-200/90 text-amber-950"
-                        : "bg-amber-100/60 text-slate-600"
+                        ? "bg-accent text-accent-ink border-accent-edge"
+                        : "bg-paper-2 text-muted border-rule"
                     }`}
                   >
                     {projects.length}
@@ -171,9 +171,9 @@ export function Sidebar({
 
           {/* Date Filter */}
           <div>
-            <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5 px-1 flex items-center gap-1.5">
-              <CalendarIcon size={12} className="text-amber-600" />
-              <span>Timeline Archive</span>
+            <h4 className="text-xs font-medium text-muted mb-2.5 px-1 flex items-center gap-1.5">
+              <CalendarIcon size={12} className="text-muted" />
+              <span>Timeline</span>
             </h4>
             <ul className="space-y-1">
               {dates.map((d) => {
@@ -182,10 +182,10 @@ export function Sidebar({
                 return (
                   <li key={`${d.year}-${d.month}`}>
                     <button
-                      className={`w-full flex items-center justify-between px-3 py-1.5 rounded-xl text-sm transition-all ${
+                      className={`w-full flex items-center justify-between px-3 py-1.5 rounded-md text-sm ${
                         isActive
-                          ? "bg-sky-100 text-sky-900 font-bold border border-sky-300/80 shadow-2xs"
-                          : "text-slate-700 hover:bg-amber-100/40 hover:text-slate-900"
+                          ? "bg-accent-wash text-accent font-semibold border border-accent-edge"
+                          : "text-ink-2 hover:bg-paper-3 hover:text-ink"
                       }`}
                       onClick={() => {
                         onSelectDate(
@@ -197,16 +197,16 @@ export function Sidebar({
                       <div className="flex items-center gap-2.5">
                         <span
                           className={`w-1.5 h-1.5 rounded-full ${
-                            isActive ? "bg-sky-600 ring-2 ring-sky-300" : "bg-slate-300"
+                            isActive ? "bg-accent" : "bg-muted"
                           }`}
                         />
                         <span>{d.label}</span>
                       </div>
                       <span
-                        className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${
+                        className={`text-xs px-1.5 py-0.5 rounded-md border ${
                           isActive
-                            ? "bg-sky-200/90 text-sky-900"
-                            : "text-slate-400 bg-amber-50"
+                            ? "bg-accent text-accent-ink border-accent-edge"
+                            : "text-muted bg-paper-2 border-rule"
                         }`}
                       >
                         {d.count}
@@ -225,27 +225,27 @@ export function Sidebar({
               className="w-full flex items-center justify-between mb-2.5 px-1 group cursor-pointer"
             >
               <div className="flex items-center gap-1.5">
-                <Tag size={12} className="text-amber-600" />
-                <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-slate-800 transition-colors">
+                <Tag size={12} className="text-muted" />
+                <h4 className="text-xs font-medium text-muted group-hover:text-ink">
                   Categories
                 </h4>
               </div>
-              <div className="text-slate-400 group-hover:text-slate-700 transition-colors">
+              <div className="text-muted group-hover:text-ink transition-colors">
                 {isCategoriesOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
               </div>
             </button>
-            
+
             {isCategoriesOpen && (
-              <ul className="space-y-1 pl-1.5 border-l-2 border-amber-900/10 ml-2 mt-1">
+              <ul className="space-y-1 pl-1.5 border-l-2 border-rule ml-2 mt-1">
                 {categories.map(([tag, count]) => {
                   const isActive = selectedCategory === tag;
                   return (
                     <li key={tag}>
                       <button
-                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-sm transition-all ${
+                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-sm ${
                           isActive
-                            ? "bg-sky-100 text-sky-900 font-bold border border-sky-300/80 shadow-2xs"
-                            : "text-slate-700 hover:bg-amber-100/40 hover:text-slate-900"
+                            ? "bg-accent-wash text-accent font-semibold border border-accent-edge"
+                            : "text-ink-2 hover:bg-paper-3 hover:text-ink"
                         }`}
                         onClick={() => {
                           onSelectCategory(isActive ? null : tag);
@@ -255,16 +255,16 @@ export function Sidebar({
                         <div className="flex items-center gap-2">
                           <span
                             className={`w-1.5 h-1.5 rounded-full ${
-                              isActive ? "bg-sky-600 ring-2 ring-sky-300" : "bg-amber-400/80"
+                              isActive ? "bg-accent" : "bg-muted"
                             }`}
                           />
-                          <span className="capitalize font-medium">{tag}</span>
+                          <span className="font-medium">{tag}</span>
                         </div>
                         <span
-                          className={`text-xs px-1.5 py-0.5 rounded-full ${
+                          className={`text-xs px-1.5 py-0.5 rounded-md border ${
                             isActive
-                              ? "bg-sky-200/90 text-sky-900 font-semibold"
-                              : "text-slate-400 bg-amber-50"
+                              ? "bg-accent text-accent-ink border-accent-edge font-semibold"
+                              : "text-muted bg-paper-2 border-rule"
                           }`}
                         >
                           {count}

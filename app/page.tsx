@@ -83,7 +83,7 @@ export default function Home() {
   );
 
   return (
-    <div className="flex min-h-screen bg-[#FBF8F2]">
+    <div className="flex min-h-screen bg-paper">
       {/* Sidebar - fixed left side */}
       <Sidebar
         selectedCategory={selectedCategory}
@@ -105,12 +105,12 @@ export default function Home() {
           <section className="mb-10 space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <Sparkles size={18} className="text-amber-500" />
-                <h2 className="text-lg font-bold text-slate-900 tracking-tight">
-                  Search &amp; Filter Timeline
+                <Sparkles size={18} className="text-accent" aria-hidden="true" />
+                <h2 className="text-lg font-display font-semibold text-ink tracking-tight">
+                  Project archive
                 </h2>
               </div>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="text-xs text-muted font-medium">
                 Showing {filtered.length} of {typedProjects.length} projects
               </span>
             </div>
@@ -120,46 +120,46 @@ export default function Home() {
             {/* Active filter pills */}
             {(search || selectedCategory || selectedDate) && (
               <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
-                <span className="font-semibold text-slate-500">Active filters:</span>
+                <span className="font-medium text-muted">Active filters:</span>
                 {search && (
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-200 font-medium">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-accent-wash text-accent border border-accent-edge font-medium">
                     Search: &ldquo;{search}&rdquo;
                     <button
                       onClick={() => handleSearchChange("")}
-                      className="hover:text-sky-950 p-0.5"
+                      className="hover:text-accent p-0.5"
                       aria-label="Remove search filter"
                     >
-                      <X size={12} />
+                      <X size={12} aria-hidden="true" />
                     </button>
                   </span>
                 )}
                 {selectedCategory && (
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-medium">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-accent-wash text-accent border border-accent-edge font-medium">
                     Category: {selectedCategory}
                     <button
                       onClick={() => handleCategorySelect(null)}
-                      className="hover:text-amber-950 p-0.5"
+                      className="hover:text-accent p-0.5"
                       aria-label="Remove category filter"
                     >
-                      <X size={12} />
+                      <X size={12} aria-hidden="true" />
                     </button>
                   </span>
                 )}
                 {selectedDate && (
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-100 text-sky-900 border border-sky-200 font-medium">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-accent-wash text-accent border border-accent-edge font-medium">
                     Date: {new Date(selectedDate.year, selectedDate.month).toLocaleString("default", { month: "short", year: "numeric" })}
                     <button
                       onClick={() => handleDateSelect(null)}
-                      className="hover:text-sky-950 p-0.5"
+                      className="hover:text-accent p-0.5"
                       aria-label="Remove date filter"
                     >
-                      <X size={12} />
+                      <X size={12} aria-hidden="true" />
                     </button>
                   </span>
                 )}
                 <button
                   onClick={clearAllFilters}
-                  className="text-xs text-sky-700 hover:text-sky-900 font-semibold underline underline-offset-2 ml-1"
+                  className="text-xs text-accent hover:underline font-medium underline-offset-2 ml-1"
                 >
                   Clear all
                 </button>
@@ -170,21 +170,21 @@ export default function Home() {
           {/* Timeline Section */}
           <section id="timeline" className="scroll-mt-24">
             <div className="relative pl-0 sm:pl-10">
-              {/* Vertical line styled with custom gradient */}
-              <div className="hidden sm:block absolute left-[19px] top-4 bottom-4 w-0.5 timeline-line rounded-full" />
+              {/* Vertical hairline on the timeline */}
+              <div className="hidden sm:block absolute left-[19px] top-4 bottom-4 w-0.5 bg-rule rounded-full" />
 
               {paginatedProjects.length === 0 ? (
-                <div className="py-20 text-center bg-white/60 rounded-3xl border border-dashed border-amber-900/15 p-8">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto mb-3">
-                    <Calendar size={24} />
+                <div className="py-20 text-center bg-paper-2 rounded-md border border-dashed border-rule p-8">
+                  <div className="w-12 h-12 rounded-md bg-paper-3 text-muted flex items-center justify-center mx-auto mb-3">
+                    <Calendar size={24} aria-hidden="true" />
                   </div>
-                  <p className="text-lg font-bold text-slate-800">No matching projects</p>
-                  <p className="text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+                  <p className="text-lg font-display font-semibold text-ink">No matching projects</p>
+                  <p className="text-sm text-muted mt-1 max-w-sm mx-auto">
                     Try adjusting your search query or selecting a different category or date filter.
                   </p>
                   <button
                     onClick={clearAllFilters}
-                    className="mt-4 px-4 py-2 text-xs font-semibold rounded-xl bg-sky-600 text-white hover:bg-sky-700 transition-colors shadow-xs"
+                    className="mt-4 px-4 py-2 text-xs font-medium rounded-md bg-accent text-accent-ink keycap-accent"
                   >
                     Reset all filters
                   </button>
@@ -209,18 +209,18 @@ export default function Home() {
                           {/* Year marker chip on year transition */}
                           {isNewYear && (
                             <div className="relative flex items-center gap-3 mb-6 sm:-ml-10">
-                              <div className="hidden sm:flex items-center justify-center px-2.5 py-1 rounded-full bg-amber-500 text-white font-extrabold text-xs shadow-md ring-4 ring-[#FBF8F2] z-10">
+                              <div className="hidden sm:flex items-center justify-center px-2.5 py-1 rounded-md bg-graphite text-graphite-ink font-display font-semibold text-xs shadow-card z-10">
                                 {projectYear}
                               </div>
-                              <span className="sm:hidden px-3 py-1 rounded-full bg-amber-100 text-amber-950 border border-amber-300 text-xs font-bold shadow-2xs">
+                              <span className="sm:hidden px-3 py-1 rounded-md bg-paper-2 text-ink border border-rule text-xs font-medium">
                                 {projectYear}
                               </span>
-                              <div className="h-px flex-1 bg-gradient-to-r from-amber-300/80 via-amber-200/40 to-transparent" />
+                              <div className="h-px flex-1 bg-rule" />
                             </div>
                           )}
 
-                          {/* Pulsing Dot on the timeline */}
-                          <div className="hidden sm:flex absolute -left-[31px] top-8 w-3.5 h-3.5 rounded-full bg-sky-600 ring-4 ring-[#FBF8F2] shadow-sm animate-dot-pulse z-[1]" />
+                          {/* Marker on the timeline */}
+                          <div className="hidden sm:flex absolute -left-[31px] top-8 w-3.5 h-3.5 rounded-full bg-accent ring-4 ring-paper shadow-sm z-[1]" />
 
                           <ProjectCard project={project} index={i} />
                         </li>
@@ -230,7 +230,7 @@ export default function Home() {
 
                   {/* Pagination Controls */}
                   {totalPages > 1 && (
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-amber-900/10 pt-6">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-rule pt-6">
                       <button
                         onClick={() => {
                           setCurrentPage((p) => Math.max(1, p - 1));
@@ -238,15 +238,15 @@ export default function Home() {
                           if (el) el.scrollIntoView({ behavior: "smooth" });
                         }}
                         disabled={currentPage === 1}
-                        className="px-5 py-2.5 text-sm font-semibold rounded-2xl bg-white border border-amber-900/15 text-slate-700
-                                   hover:bg-amber-50/80 hover:text-sky-700 hover:border-sky-300 disabled:opacity-40
-                                   disabled:pointer-events-none transition-all shadow-2xs focus:outline-none focus:ring-2 focus:ring-sky-500 w-full sm:w-auto text-center"
+                        className="px-5 py-2.5 text-sm font-medium rounded-md bg-paper-hi border border-rule text-ink-2
+                                   hover:text-accent hover:border-accent-edge disabled:opacity-40
+                                   disabled:pointer-events-none transition-colors w-full sm:w-auto text-center"
                       >
-                        ← Previous
+                        Previous
                       </button>
 
                       <div className="flex items-center gap-2">
-                        <span className="px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/70 text-xs font-bold text-amber-950 shadow-2xs">
+                        <span className="px-3.5 py-1.5 rounded-md bg-paper-2 border border-rule text-xs font-medium text-ink-2">
                           Page {currentPage} of {totalPages}
                         </span>
                       </div>
@@ -258,11 +258,11 @@ export default function Home() {
                           if (el) el.scrollIntoView({ behavior: "smooth" });
                         }}
                         disabled={currentPage === totalPages}
-                        className="px-5 py-2.5 text-sm font-semibold rounded-2xl bg-white border border-amber-900/15 text-slate-700
-                                   hover:bg-amber-50/80 hover:text-sky-700 hover:border-sky-300 disabled:opacity-40
-                                   disabled:pointer-events-none transition-all shadow-2xs focus:outline-none focus:ring-2 focus:ring-sky-500 w-full sm:w-auto text-center"
+                        className="px-5 py-2.5 text-sm font-medium rounded-md bg-paper-hi border border-rule text-ink-2
+                                   hover:text-accent hover:border-accent-edge disabled:opacity-40
+                                   disabled:pointer-events-none transition-colors w-full sm:w-auto text-center"
                       >
-                        Next →
+                        Next
                       </button>
                     </div>
                   )}

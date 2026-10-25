@@ -26,3 +26,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# hallmark records (local design-process artifacts)
+.hallmark/
+

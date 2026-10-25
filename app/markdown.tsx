@@ -64,7 +64,7 @@ function renderSegments(segs: Segment[]): React.ReactNode[] {
         return (
           <code
             key={i}
-            className="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-800 text-[12.5px] font-mono border border-slate-200/80"
+            className="px-1.5 py-0.5 rounded-md bg-paper-2 text-ink text-[12.5px] font-mono border border-rule"
           >
             {s.text}
           </code>
@@ -76,7 +76,7 @@ function renderSegments(segs: Segment[]): React.ReactNode[] {
             href={escapeHtml(s.href)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sky-700 underline decoration-sky-300 decoration-wavy decoration-2 hover:text-sky-800 inline-flex items-center gap-0.5"
+            className="text-accent underline decoration-accent/40 underline-offset-2 hover:text-accent inline-flex items-center gap-0.5"
           >
             {s.text}
             <ExternalLink size={12} className="shrink-0" />

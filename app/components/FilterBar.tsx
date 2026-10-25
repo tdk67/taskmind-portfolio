@@ -13,24 +13,25 @@ export function FilterBar({
 }: FilterBarProps) {
   return (
     <div className="relative group">
-      <div className="relative flex items-center rounded-2xl bg-white/95 border border-amber-900/15 shadow-xs hover:border-sky-300/80 focus-within:border-sky-500 focus-within:ring-4 focus-within:ring-sky-500/15 focus-within:shadow-md transition-all duration-200">
+      <div className="relative flex items-center rounded-md bg-paper-hi border border-rule-2 shadow-card focus-within:border-accent-edge focus-within:ring-2 focus-within:ring-accent">
         <Search
           size={18}
-          className="absolute left-4 text-sky-600 pointer-events-none group-focus-within:text-sky-700 transition-colors"
+          className="absolute left-4 text-muted pointer-events-none group-focus-within:text-accent"
+          aria-hidden="true"
         />
         <input
           type="text"
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search by title, technology, or keywords (e.g. Python, Agentic, RAG)…"
-          className="w-full pl-11 pr-12 py-3.5 text-sm text-slate-900 rounded-2xl bg-transparent
-                     placeholder:text-slate-400 focus:outline-none transition-all font-medium"
+          className="w-full pl-11 pr-12 py-3.5 text-sm text-ink rounded-md bg-transparent
+                     placeholder:text-muted focus:outline-none font-medium"
           aria-label="Search projects"
         />
         {search && (
           <button
             onClick={() => onSearchChange("")}
-            className="absolute right-3.5 p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="absolute right-3.5 p-1 rounded-md text-muted hover:text-ink hover:bg-paper-3 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
             aria-label="Clear search"
           >
             <X size={16} />
