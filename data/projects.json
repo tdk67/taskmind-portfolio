@@ -397,5 +397,29 @@
       "audio",
       "tool"
     ]
+  },
+  {
+    "id": "e2b-sandbox-billing",
+    "title": "E2B Usage Billing Service — Production-Grade Billing Engine + PostgreSQL Observability",
+    "date": "2026-11-08",
+    "description": "An **event-driven usage billing engine** (Kotlin 2.1, Ktor, JetBrains Exposed, PostgreSQL 16) that ingests idempotent compute telemetry (`cpu_seconds`), applies temporal per-customer/default pricing tiers, enforces reactive spend caps, and issues immutable monthly invoices with bit-exact database-reconstructible audit proofs. Includes a **Prometheus + Grafana observability stack** for live through put & bottleneck analysis.",
+    "fullDescription": "**E2B Usage Billing Service** is a production-grade billing engine for E2B's microVM AI-sandbox platform (~50,000 customers, 16.7k+ records/sec average).\\n\\n**Core billing correctness** — streams consumption via idempotent HTTP ingestion, applying the price in force at each telemetry timestamp (customer override > default), with exact integer micro-cent arithmetic and per-bucket HALF_UP rounding. Credits apply strictly to usage (never add-ons); spend caps evaluate the current UTC month only; and every invoice is immutable once issued, with the precise math reconstructible directly from the DB for dispute resolution. A batch-ingestion differential test and independent billing oracle guarantee bit-exact results over 1,000+ invoices.\\n\\n**PostgreSQL load validation on a constrained VPS (2 vCPU, slow disk)** — reproduced the original laptop benchmark on real PostgreSQL 16: monthly concurrent billrun sustains **~224 customers/sec** (1,000 customers in 4.5s, bit-exact), and ingestion holds **~11k–17k events/sec** at only ~10% CPU with raw↔rollup unit-sum reconciliation bit-exact. JFR server-side profiling showed the bottleneck is PostgreSQL commit/fsync + JDBC round-trip latency on the slow disk, not CPU, JSON, or application locks.\\n\\n**Live observability (Prometheus + Grafana)** — the app exposes Micrometer metrics at `/metrics` (ingest counters + latency histogram, HTTP rate, HikariCP pool saturation, JVM/GC). A docker-compose stack (Prometheus, Grafana, node-exporter) runs on the VPS and a pre-provisioned Grafana dashboard visualizes **through put (events/sec), ingest latency p50/p95/p99, DB pool saturation (the key bottleneck signal), GC, and the host CPU<75% memory guardrail** live while the app runs.\\n\\n**Design philosophy** — Hexagonal (ports & adapters) Kotlin with on-the-go rollup pre-aggregation (O(active price tiers) per billing query), strict API planes (platform / customer / admin), fail-fast config, and Flyway versioned migrations. CLI simulator + 37 automated tests (0 failures).",
+    "githubUrl": null,
+    "deployedUrl": "https://grafana.taskmind-ai.com/e2b-billing/",
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "kotlin",
+      "backend",
+      "billing",
+      "postgresql",
+      "observability",
+      "prometheus",
+      "grafana"
+    ]
   }
 ]
