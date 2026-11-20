@@ -406,7 +406,7 @@
     "fullDescription": "**E2B Usage Billing Service** is a production-grade billing engine for E2B's microVM AI-sandbox platform (~50,000 customers, 16.7k+ records/sec average).\\n\\n**Live one-click demo** — the service runs permanently on this VPS against PostgreSQL 16. Watch the live dashboard while the load tester streams: open [Grafana (live)](https://grafana.taskmind-ai.com/e2b-billing/) and the [interactive Swagger docs](https://grafana.taskmind-ai.com/billing/docs). Scripted demo: [DEMO_RUNBOOK.md](https://github.com/tdk67/sandbox-billing/blob/main/DEMO_RUNBOOK.md) — seed 1k customers, 10+ temporal price changes and ~30% per-customer overrides, then run the end-to-end load test; the assignment's worked example (ACME-0001 $20.00 / CYBERDYNE-0001 $18.17 past the $15 spend cap / late-usage rollover into ACME-0002) is one command: `./gradlew run --args=\"--simulate-only\"`.\\n\\n**Core billing correctness** — streams consumption via idempotent HTTP ingestion, applying the price in force at each telemetry timestamp (customer override > default), with exact integer micro-cent arithmetic and per-bucket HALF_UP rounding. Credits apply strictly to usage (never add-ons); spend caps evaluate the current UTC month only; and every invoice is immutable once issued, with the precise math reconstructible directly from the DB for dispute resolution. A batch-ingestion differential test and independent billing oracle guarantee bit-exact results over 1,000+ invoices.\\n\\n**PostgreSQL load validation on a constrained VPS (2 vCPU, slow disk)** — reproduced the original laptop benchmark on real PostgreSQL 16: monthly concurrent billrun sustains **~224 customers/sec** (1,000 customers in 4.5s, bit-exact), and ingestion holds **~11k–17k events/sec** at only ~10% CPU with raw↔rollup unit-sum reconciliation bit-exact. JFR server-side profiling showed the bottleneck is PostgreSQL commit/fsync + JDBC round-trip latency on the slow disk, not CPU, JSON, or application locks.\\n\\n**Live observability (Prometheus + Grafana)** — the app exposes Micrometer metrics at `/metrics` (ingest counters + latency histogram, HTTP rate, HikariCP pool saturation, JVM/GC). A docker-compose stack (Prometheus, Grafana, node-exporter) runs on the VPS and a pre-provisioned Grafana dashboard visualizes **through put (events/sec), ingest latency p50/p95/p99, DB pool saturation (the key bottleneck signal), GC, and the host CPU<75% memory guardrail** live while the app runs.\\n\\n**Design philosophy** — Hexagonal (ports & adapters) Kotlin with on-the-go rollup pre-aggregation (O(active price tiers) per billing query), strict API planes (platform / customer / admin), fail-fast config, and Flyway versioned migrations. CLI simulator + 72 automated tests (0 failures).",
     "githubUrl": "https://github.com/tdk67/sandbox-billing",
     "deployedUrl": "https://grafana.taskmind-ai.com/e2b-billing/",
-    "linkedinUrl": null,
+    "linkedinUrl": "https://www.linkedin.com/pulse/billing-ai-sandboxes-second-what-actually-hard-tamas-deak-f6eie/",
     "videoUrl": null,
     "videoLabel": null,
     "reportUrl": "https://github.com/tdk67/sandbox-billing/blob/main/DEMO_RUNBOOK.md",
@@ -420,6 +420,30 @@
       "observability",
       "prometheus",
       "grafana"
+    ]
+  },
+  {
+    "id": "decision-model-audio",
+    "title": "Song Analyser — Gemini Decision-1 Multi-Clip Audio Analysis (BYOK)",
+    "date": "2026-11-20",
+    "description": "A **hexagonal, self-hosted (BYOK) song analyser** that runs hundreds of structured questions (100 instruments, 110 genres, 7-bucket BPM rubric) against Google's **non-autoregressive `gemini-decision-1`** Decision Model — in **zero-output-token** forward passes with **multi-clip audio batching**, while streaming live per-second results to a synchronized dashboard.",
+    "fullDescription": "**Song Analyser** pairs `ffmpeg` 5-second audio chunking with **`gemini-decision-1`** (via the direct Google API or OpenRouter BYOK), which returns calibrated probabilities, softmax classifications and ordinal scores with zero output tokens in a single forward pass — unlike autoregressive chat models that generate prose token-by-token.\n\n**Massively parallel question evaluation** — up to 1,000 structured questions per API call. Pass 1 runs acoustic disambiguation (`noul` yes/no + `choice` softmax): `the chordal lead family`, `piano vs acoustic guitar`, `cymbal vs percussive attack`, `macro genre`. Pass 2 evaluates the full 211-question taxonomy (100 instruments + 110 genres as `noul`, plus a 7-bucket `score` tempo rubric). Pass 3 interleaves text clip markers with multiple base64 MP3 slices in a single `input`/`state` array, scoping each 5-second clip to its top labels so up to **17 clips (952 questions) run in one forward pass** (~1.2–1.5s for a 6-clip / 336-question batch).\n\n**Zero-output-token economics** — a probe of a 3-minute MP3 on OpenRouter recorded 10,560 input tokens / 0 output tokens at ~$0.001 total inference cost, with **verified parity** between the direct Google v1beta SDK and OpenRouter's `/api/alpha/decisions` (identical calibrated scores across all stages, watched by a live dashboard).\n\n**BYOK security-first architecture** — a layered hexagonal web app (`HTTP API -> Application Services & SongDecisionPort -> Provider Adapters`). The server stores no keys: every `/api/validate-key` and `/api/analyze/*` call requires `X-Provider` + `X-API-Key` headers, validated keys live only in the visitor's browser **IndexedDB** (forgettable anytime), query-string keys are rejected with HTTP 400, and SSE streams use a 256-bit `X-Job-Token` header checked via constant-time comparison. Uploaded audio is deleted immediately after `ffmpeg` slicing, logs scrub `AIza...`/`sk-or-v1-...` tokens, and abuse is capped with per-IP rate limits, a 25 MB upload size limit, a 600s `ffprobe` duration guard, and an active-job cap.\n\n**Live dashboard** — a Preact + Vite SPA syncs over fetch SSE: every 5 seconds of playback the instrument/genre probability bars and a 3-digit BPM speedometer update in real time from the model's non-autoregressive scores. Ships as a multi-stage Node 22 + ffmpeg non-root Docker image with a built-in healthcheck.",
+    "githubUrl": "https://github.com/tdk67/decision-model-audio",
+    "deployedUrl": "https://decision-audio.taskmind-ai.com",
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "typescript",
+      "ai",
+      "audio",
+      "music",
+      "fullstack",
+      "infra",
+      "security"
     ]
   }
 ]
