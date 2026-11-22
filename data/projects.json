@@ -347,7 +347,7 @@
     "description": "Deep **interpretative tool for musical lyrics** powered by emergent AI models.",
     "fullDescription": "**Lyric Lens** provides a unique interface for exploring the hidden themes and metaphors within music. It uses cutting-edge LLMs to perform sentiment and thematic analysis on song lyrics, offering a **rich, interactive interpretation** of favorite tracks — an emergent approach to cultural and artistic analysis through digital tools.",
     "githubUrl": "https://github.com/tdk67/lyric-lens-emergent",
-    "deployedUrl": "https://doc-review-app-3.emergent.host",
+    "deployedUrl": "https://lyriclens-video.vercel.app",
     "linkedinUrl": "https://www.linkedin.com/posts/tdeak67_ai-builderschallenge-emergent-ugcPost-7480040508086599680-ggb8",
     "tags": [
       "typescript",
