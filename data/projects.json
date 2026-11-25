@@ -423,6 +423,29 @@
     ]
   },
   {
+    "id": "decision-model-image",
+    "title": "Traffic Sign Categorizer — 107-Class Decision-Model Sign Detection (BYOK)",
+    "date": "2026-11-25",
+    "description": "A **BYOK traffic-sign categorizer** that localizes and classifies up to **107 street-sign classes** in a single photo using **decision-model scoring** — real-time bounding-box localization plus interactive crop-level re-classification, across **Google `gemini-decision-1`** and **Jev 1.14** (`typesafe/jev-1.14`, OpenRouter).",
+    "fullDescription": "**Traffic Sign Categorizer** solves the problem of reliably identifying and localizing multiple small, distant, or overlapping traffic signs across a large closed-set taxonomy in real-world street photos — where single-pass image classification is unreliable and free-form LLM prompts are hard to calibrate.\n\n**Calibrated closed-set classification** — sends the image and all **107 `noul` (yes/no) questions** (one per sign class, e.g. \"Is a red octagonal Stop sign clearly visible?\") in a single forward pass of Google's **non-autoregressive `gemini-decision-1`** Decision Model, returning calibrated `[0..1]` scores instead of prose.\n\n**Spatial localization** — boxes are drawn around every detected sign: for **Jev** the model's native `type: \"box\"` question returns structured `{top,left,bottom,right}` coordinates in `[0..1]` (scaled to `[0..1000]`) with no prompt-engineering or JSON parsing; for **Gemini**, localization runs a parallel multimodal pass (`gemini-4-hydrogen` with a strict `BOX_SCHEMA`) alongside the classification pass because `gemini-decision-1` has no native box question type.\n\n**Interactive crop-level re-classification** — the Preact UI crops any detected box onto a canvas and re-posts it to `/api/classify-crop`, re-scoring the isolated sign at high resolution for a cleaner read on small/distant signs.\n\n**BYOK security-first architecture** — the server stores no keys. Every `/api/validate-key`, `/api/analyze`, and `/api/classify-crop` call requires `X-Provider` (gemini|jev) + `X-API-Key` headers; validated keys live only in the visitor's browser **IndexedDB** (forgettable anytime), query-string keys are rejected with HTTP 400, `AIza...`/`sk-or-v1-...` tokens are scrubbed from error logs, and a strict CSP + security headers are set on every response. Uploads are capped at 15 MB (multer in-memory).\n\n**Production deployment** — multi-stage Node build; the single Express server serves both the built Preact SPA and the `/api` endpoints on one port, fronted by nginx with a `client_max_body_size` of 25 MB and auto-renewing Let's Encrypt TLS.",
+    "githubUrl": "https://github.com/tdk67/decision-model-image",
+    "deployedUrl": "https://decision-image.taskmind-ai.com",
+    "linkedinUrl": null,
+    "videoUrl": null,
+    "videoLabel": null,
+    "reportUrl": null,
+    "devpostUrl": null,
+    "reportLabel": null,
+    "tags": [
+      "typescript",
+      "ai",
+      "vision",
+      "fullstack",
+      "infra",
+      "security"
+    ]
+  },
+  {
     "id": "decision-model-audio",
     "title": "Song Analyser — Gemini Decision-1 Multi-Clip Audio Analysis (BYOK)",
     "date": "2026-11-20",
@@ -430,7 +453,7 @@
     "fullDescription": "**Song Analyser** pairs `ffmpeg` 5-second audio chunking with **`gemini-decision-1`** (via the direct Google API or OpenRouter BYOK), which returns calibrated probabilities, softmax classifications and ordinal scores with zero output tokens in a single forward pass — unlike autoregressive chat models that generate prose token-by-token.\n\n**Massively parallel question evaluation** — up to 1,000 structured questions per API call. Pass 1 runs acoustic disambiguation (`noul` yes/no + `choice` softmax): `the chordal lead family`, `piano vs acoustic guitar`, `cymbal vs percussive attack`, `macro genre`. Pass 2 evaluates the full 211-question taxonomy (100 instruments + 110 genres as `noul`, plus a 7-bucket `score` tempo rubric). Pass 3 interleaves text clip markers with multiple base64 MP3 slices in a single `input`/`state` array, scoping each 5-second clip to its top labels so up to **17 clips (952 questions) run in one forward pass** (~1.2–1.5s for a 6-clip / 336-question batch).\n\n**Zero-output-token economics** — a probe of a 3-minute MP3 on OpenRouter recorded 10,560 input tokens / 0 output tokens at ~$0.001 total inference cost, with **verified parity** between the direct Google v1beta SDK and OpenRouter's `/api/alpha/decisions` (identical calibrated scores across all stages, watched by a live dashboard).\n\n**BYOK security-first architecture** — a layered hexagonal web app (`HTTP API -> Application Services & SongDecisionPort -> Provider Adapters`). The server stores no keys: every `/api/validate-key` and `/api/analyze/*` call requires `X-Provider` + `X-API-Key` headers, validated keys live only in the visitor's browser **IndexedDB** (forgettable anytime), query-string keys are rejected with HTTP 400, and SSE streams use a 256-bit `X-Job-Token` header checked via constant-time comparison. Uploaded audio is deleted immediately after `ffmpeg` slicing, logs scrub `AIza...`/`sk-or-v1-...` tokens, and abuse is capped with per-IP rate limits, a 25 MB upload size limit, a 600s `ffprobe` duration guard, and an active-job cap.\n\n**Live dashboard** — a Preact + Vite SPA syncs over fetch SSE: every 5 seconds of playback the instrument/genre probability bars and a 3-digit BPM speedometer update in real time from the model's non-autoregressive scores. Ships as a multi-stage Node 22 + ffmpeg non-root Docker image with a built-in healthcheck.",
     "githubUrl": "https://github.com/tdk67/decision-model-audio",
     "deployedUrl": "https://decision-audio.taskmind-ai.com",
-    "linkedinUrl": null,
+    "linkedinUrl": "https://lnkd.in/p/ezdWcQPJ",
     "videoUrl": null,
     "videoLabel": null,
     "reportUrl": null,
